@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Builder
@@ -37,6 +39,9 @@ public class Customer {
 
     @Column(name = "identification_number", nullable = false, unique = true)
     private String identificationNumber;
+
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Account> accounts = new ArrayList<>();
 
     @Column(name = "registration_date", nullable = false)
     private LocalDate registrationDate;
