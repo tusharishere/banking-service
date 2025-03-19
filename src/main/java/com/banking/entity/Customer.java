@@ -1,0 +1,47 @@
+package com.banking.entity;
+
+import jakarta.persistence.*;
+import lombok.*;
+
+import java.time.LocalDate;
+
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+@Table(name = "customers")
+public class Customer {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
+    private Long id;
+
+    @Column(name = "first_name", nullable = false)
+    private String firstName;
+
+    @Column(name = "last_name", nullable = false)
+    private String lastName;
+
+    @Column(name = "email", unique = true, nullable = false)
+    private String email;
+
+    @Column(name = "phone_number", nullable = false)
+    private String phoneNumber;
+
+    @Column(name = "address",nullable = false)
+    private String address;
+
+    @Column(name = "date_of_birth",nullable = false)
+    private LocalDate dateOfBirth;
+
+    @Column(name = "identification_number", nullable = false, unique = true)
+    private String identificationNumber;
+
+    @Column(name = "registration_date", nullable = false)
+    private LocalDate registrationDate;
+
+    @Column(name = "active", nullable = false)
+    private Boolean active = false;
+
+}
