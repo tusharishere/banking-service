@@ -134,3 +134,63 @@
 2025-03-20T18:59:25.528+05:30  INFO 17008 --- [banking-service] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2025-03-20T18:59:25.537+05:30  INFO 17008 --- [banking-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2025-03-20T18:59:25.556+05:30  INFO 17008 --- [banking-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-03-20T20:51:57.267+05:30  INFO 10324 --- [banking-service] [restartedMain] com.banking.BankingServiceApplication    : Starting BankingServiceApplication using Java 17.0.12 with PID 10324 (C:\Users\Asus\Desktop\banking-service\target\classes started by Asus in C:\Users\Asus\Desktop\banking-service)
+2025-03-20T20:51:57.272+05:30 DEBUG 10324 --- [banking-service] [restartedMain] com.banking.BankingServiceApplication    : Running with Spring Boot v3.3.9, Spring v6.1.17
+2025-03-20T20:51:57.274+05:30  INFO 10324 --- [banking-service] [restartedMain] com.banking.BankingServiceApplication    : No active profile set, falling back to 1 default profile: "default"
+2025-03-20T20:51:57.450+05:30  INFO 10324 --- [banking-service] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-03-20T20:51:57.452+05:30  INFO 10324 --- [banking-service] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-03-20T20:52:00.124+05:30  INFO 10324 --- [banking-service] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-20T20:52:00.399+05:30  INFO 10324 --- [banking-service] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 246 ms. Found 5 JPA repository interfaces.
+2025-03-20T20:52:02.171+05:30  INFO 10324 --- [banking-service] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-03-20T20:52:02.213+05:30  INFO 10324 --- [banking-service] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-03-20T20:52:02.215+05:30  INFO 10324 --- [banking-service] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-03-20T20:52:02.395+05:30  INFO 10324 --- [banking-service] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-03-20T20:52:02.397+05:30  INFO 10324 --- [banking-service] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4942 ms
+2025-03-20T20:52:02.844+05:30  INFO 10324 --- [banking-service] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-03-20T20:52:03.041+05:30  INFO 10324 --- [banking-service] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-03-20T20:52:03.158+05:30  INFO 10324 --- [banking-service] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-03-20T20:52:04.079+05:30  INFO 10324 --- [banking-service] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-20T20:52:04.161+05:30  INFO 10324 --- [banking-service] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-03-20T20:52:04.996+05:30  INFO 10324 --- [banking-service] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@365c9378
+2025-03-20T20:52:04.999+05:30  INFO 10324 --- [banking-service] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-03-20T20:52:05.155+05:30  WARN 10324 --- [banking-service] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-20T20:52:05.160+05:30  WARN 10324 --- [banking-service] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-03-20T20:52:07.344+05:30  INFO 10324 --- [banking-service] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-03-20T20:52:07.691+05:30  INFO 10324 --- [banking-service] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-20T20:52:09.398+05:30  WARN 10324 --- [banking-service] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-03-20T20:52:10.499+05:30  INFO 10324 --- [banking-service] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-03-20T20:52:10.579+05:30  INFO 10324 --- [banking-service] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-03-20T20:52:10.602+05:30  INFO 10324 --- [banking-service] [restartedMain] com.banking.BankingServiceApplication    : Started BankingServiceApplication in 14.523 seconds (process running for 15.854)
+2025-03-20T20:52:20.489+05:30  INFO 10324 --- [banking-service] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-20T20:52:20.536+05:30  INFO 10324 --- [banking-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-03-20T20:52:20.555+05:30  INFO 10324 --- [banking-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-03-20T20:56:23.869+05:30  INFO 21076 --- [banking-service] [restartedMain] com.banking.BankingServiceApplication    : Starting BankingServiceApplication using Java 17.0.12 with PID 21076 (C:\Users\Asus\Desktop\banking-service\target\classes started by Asus in C:\Users\Asus\Desktop\banking-service)
+2025-03-20T20:56:23.876+05:30 DEBUG 21076 --- [banking-service] [restartedMain] com.banking.BankingServiceApplication    : Running with Spring Boot v3.3.9, Spring v6.1.17
+2025-03-20T20:56:23.880+05:30  INFO 21076 --- [banking-service] [restartedMain] com.banking.BankingServiceApplication    : No active profile set, falling back to 1 default profile: "default"
+2025-03-20T20:56:24.036+05:30  INFO 21076 --- [banking-service] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-03-20T20:56:24.037+05:30  INFO 21076 --- [banking-service] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-03-20T20:56:26.575+05:30  INFO 21076 --- [banking-service] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-20T20:56:26.841+05:30  INFO 21076 --- [banking-service] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 249 ms. Found 5 JPA repository interfaces.
+2025-03-20T20:56:28.684+05:30  INFO 21076 --- [banking-service] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-03-20T20:56:28.709+05:30  INFO 21076 --- [banking-service] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-03-20T20:56:28.710+05:30  INFO 21076 --- [banking-service] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-03-20T20:56:28.880+05:30  INFO 21076 --- [banking-service] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-03-20T20:56:28.882+05:30  INFO 21076 --- [banking-service] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4842 ms
+2025-03-20T20:56:29.379+05:30  INFO 21076 --- [banking-service] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-03-20T20:56:29.609+05:30  INFO 21076 --- [banking-service] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-03-20T20:56:29.739+05:30  INFO 21076 --- [banking-service] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-03-20T20:56:30.707+05:30  INFO 21076 --- [banking-service] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-20T20:56:30.837+05:30  INFO 21076 --- [banking-service] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-03-20T20:56:31.673+05:30  INFO 21076 --- [banking-service] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4d674da2
+2025-03-20T20:56:31.677+05:30  INFO 21076 --- [banking-service] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-03-20T20:56:31.774+05:30  WARN 21076 --- [banking-service] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-20T20:56:31.777+05:30  WARN 21076 --- [banking-service] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-03-20T20:56:34.559+05:30  INFO 21076 --- [banking-service] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-03-20T20:56:34.777+05:30  INFO 21076 --- [banking-service] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-20T20:56:36.751+05:30  WARN 21076 --- [banking-service] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-03-20T20:56:38.087+05:30  INFO 21076 --- [banking-service] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-03-20T20:56:38.179+05:30  INFO 21076 --- [banking-service] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-03-20T20:56:38.206+05:30  INFO 21076 --- [banking-service] [restartedMain] com.banking.BankingServiceApplication    : Started BankingServiceApplication in 15.587 seconds (process running for 17.13)
+2025-03-20T20:58:42.098+05:30  INFO 21076 --- [banking-service] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-20T20:58:42.107+05:30  INFO 21076 --- [banking-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-03-20T20:58:42.131+05:30  INFO 21076 --- [banking-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CreditCardServiceImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">BankingServiceApplication Coverage Results</a> &gt; <a href="index.source.html" class="el_package">com.banking.service.impl</a> &gt; <span class="el_source">CreditCardServiceImpl.java</span></div><h1>CreditCardServiceImpl.java</h1><pre class="source lang-java linenums">package com.banking.service.impl;
+
+import com.banking.entity.Account;
+import com.banking.entity.CreditCard;
+import com.banking.exception.ResourceNotFoundException;
+import com.banking.payload.CreditCardDTO;
+import com.banking.repository.AccountRepository;
+import com.banking.repository.CreditCardRepository;
+import com.banking.service.CreditCardService;
+import jakarta.transaction.Transactional;
+import lombok.extern.slf4j.Slf4j;
+import org.modelmapper.ModelMapper;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+<span class="fc" id="L18">@Slf4j</span>
+@Service
+public class CreditCardServiceImpl implements CreditCardService {
+
+    private final CreditCardRepository creditCardRepository;
+    private final AccountRepository accountRepository;
+    private final ModelMapper modelMapper;
+
+<span class="fc" id="L26">    public CreditCardServiceImpl(CreditCardRepository creditCardRepository, AccountRepository accountRepository, ModelMapper modelMapper) {</span>
+<span class="fc" id="L27">        this.creditCardRepository = creditCardRepository;</span>
+<span class="fc" id="L28">        this.accountRepository = accountRepository;</span>
+<span class="fc" id="L29">        this.modelMapper = modelMapper;</span>
+<span class="fc" id="L30">    }</span>
+
+    @Override
+    @Transactional
+    public CreditCardDTO createCreditCard(CreditCardDTO creditCardDTO) {
+<span class="nc" id="L35">        log.info(&quot;Creating credit card with number: {}&quot;, creditCardDTO.getCardNumber());</span>
+<span class="nc" id="L36">        Account account = accountRepository.findById(creditCardDTO.getAccountId())</span>
+<span class="nc" id="L37">                .orElseThrow(() -&gt; {</span>
+<span class="nc" id="L38">                    log.error(&quot;Account not found with ID: {}&quot;, creditCardDTO.getAccountId());</span>
+<span class="nc" id="L39">                    return new ResourceNotFoundException(&quot;Account not found with id: &quot; + creditCardDTO.getAccountId());</span>
+                });
+
+<span class="nc bnc" id="L42" title="All 2 branches missed.">        if (creditCardRepository.existsByCardNumber(creditCardDTO.getCardNumber())) {</span>
+<span class="nc" id="L43">            log.warn(&quot;Card number already exists: {}&quot;, creditCardDTO.getCardNumber());</span>
+<span class="nc" id="L44">            throw new IllegalArgumentException(&quot;Card number already exists&quot;);</span>
+        }
+
+<span class="nc bnc" id="L47" title="All 2 branches missed.">        if (creditCardRepository.existsByAccountId(creditCardDTO.getAccountId())) {</span>
+<span class="nc" id="L48">            log.warn(&quot;Account already has a credit card with ID: {}&quot;, creditCardDTO.getAccountId());</span>
+<span class="nc" id="L49">            throw new IllegalArgumentException(&quot;Account already has a credit card&quot;);</span>
+        }
+
+<span class="nc" id="L52">        CreditCard creditCard = mapToEntity(creditCardDTO);</span>
+<span class="nc" id="L53">        creditCard.setAccount(account);</span>
+<span class="nc" id="L54">        CreditCard savedCard = creditCardRepository.save(creditCard);</span>
+<span class="nc" id="L55">        log.info(&quot;Credit card created successfully with ID: {}&quot;, savedCard.getId());</span>
+<span class="nc" id="L56">        return mapToDTO(savedCard);</span>
+    }
+
+    @Override
+    public CreditCardDTO getCreditCardById(Long id) {
+<span class="nc" id="L61">        log.info(&quot;Fetching credit card by ID: {}&quot;, id);</span>
+<span class="nc" id="L62">        CreditCard creditCard = creditCardRepository.findById(id)</span>
+<span class="nc" id="L63">                .orElseThrow(() -&gt; {</span>
+<span class="nc" id="L64">                    log.error(&quot;Credit card not found with ID: {}&quot;, id);</span>
+<span class="nc" id="L65">                    return new ResourceNotFoundException(&quot;Credit card not found with id: &quot; + id);</span>
+                });
+<span class="nc" id="L67">        log.info(&quot;Credit card fetched successfully with ID: {}&quot;, id);</span>
+<span class="nc" id="L68">        return mapToDTO(creditCard);</span>
+    }
+
+    @Override
+    public CreditCardDTO getCreditCardByCardNumber(String cardNumber) {
+<span class="nc" id="L73">        log.info(&quot;Fetching credit card by card number: {}&quot;, cardNumber);</span>
+<span class="nc" id="L74">        CreditCard creditCard = creditCardRepository.findByCardNumber(cardNumber)</span>
+<span class="nc" id="L75">                .orElseThrow(() -&gt; {</span>
+<span class="nc" id="L76">                    log.error(&quot;Credit card not found with number: {}&quot;, cardNumber);</span>
+<span class="nc" id="L77">                    return new ResourceNotFoundException(&quot;Credit card not found with number: &quot; + cardNumber);</span>
+                });
+<span class="nc" id="L79">        log.info(&quot;Credit card fetched successfully with number: {}&quot;, cardNumber);</span>
+<span class="nc" id="L80">        return mapToDTO(creditCard);</span>
+    }
+
+    @Override
+    public CreditCardDTO getCreditCardByAccountId(Long accountId) {
+<span class="nc" id="L85">        log.info(&quot;Fetching credit card by account ID: {}&quot;, accountId);</span>
+<span class="nc" id="L86">        CreditCard creditCard = creditCardRepository.findByAccountId(accountId)</span>
+<span class="nc" id="L87">                .orElseThrow(() -&gt; {</span>
+<span class="nc" id="L88">                    log.error(&quot;Credit card not found for account ID: {}&quot;, accountId);</span>
+<span class="nc" id="L89">                    return new ResourceNotFoundException(&quot;Credit card not found for account ID: &quot; + accountId);</span>
+                });
+<span class="nc" id="L91">        log.info(&quot;Credit card fetched successfully for account ID: {}&quot;, accountId);</span>
+<span class="nc" id="L92">        return mapToDTO(creditCard);</span>
+    }
+
+    @Override
+    public List&lt;CreditCardDTO&gt; getAllCreditCards() {
+<span class="nc" id="L97">        log.info(&quot;Fetching all credit cards&quot;);</span>
+<span class="nc" id="L98">        List&lt;CreditCard&gt; creditCards = creditCardRepository.findAll();</span>
+<span class="nc" id="L99">        log.info(&quot;Total credit cards fetched: {}&quot;, creditCards.size());</span>
+<span class="nc" id="L100">        return creditCards.stream().map(this::mapToDTO).collect(Collectors.toList());</span>
+    }
+
+    @Override
+    @Transactional
+    public CreditCardDTO updateCreditCard(Long id, CreditCardDTO creditCardDTO) {
+<span class="nc" id="L106">        log.info(&quot;Updating credit card with ID: {}&quot;, id);</span>
+<span class="nc" id="L107">        CreditCard creditCard = creditCardRepository.findById(id)</span>
+<span class="nc" id="L108">                .orElseThrow(() -&gt; {</span>
+<span class="nc" id="L109">                    log.error(&quot;Credit card not found with ID: {}&quot;, id);</span>
+<span class="nc" id="L110">                    return new ResourceNotFoundException(&quot;Credit card not found with id: &quot; + id);</span>
+                });
+
+<span class="nc bnc" id="L113" title="All 2 branches missed.">        if (!creditCard.getCardNumber().equals(creditCardDTO.getCardNumber()) &amp;&amp;</span>
+<span class="nc bnc" id="L114" title="All 2 branches missed.">                creditCardRepository.existsByCardNumber(creditCardDTO.getCardNumber())) {</span>
+<span class="nc" id="L115">            log.warn(&quot;Card number already exists: {}&quot;, creditCardDTO.getCardNumber());</span>
+<span class="nc" id="L116">            throw new IllegalArgumentException(&quot;Card number already exists&quot;);</span>
+        }
+
+<span class="nc" id="L119">        creditCard.setCardNumber(creditCardDTO.getCardNumber());</span>
+<span class="nc" id="L120">        creditCard.setExpiryDate(creditCardDTO.getExpiryDate());</span>
+<span class="nc" id="L121">        creditCard.setCvv(creditCardDTO.getCvv());</span>
+<span class="nc" id="L122">        creditCard.setActive(creditCardDTO.isActive());</span>
+<span class="nc" id="L123">        creditCard.setCreditLimit(creditCardDTO.getCreditLimit());</span>
+<span class="nc" id="L124">        creditCard.setAvailableCredit(creditCardDTO.getAvailableCredit());</span>
+
+<span class="nc" id="L126">        CreditCard updatedCard = creditCardRepository.save(creditCard);</span>
+<span class="nc" id="L127">        log.info(&quot;Credit card updated successfully with ID: {}&quot;, id);</span>
+<span class="nc" id="L128">        return mapToDTO(updatedCard);</span>
+    }
+
+    @Override
+    @Transactional
+    public void deleteCreditCard(Long id) {
+<span class="nc" id="L134">        log.info(&quot;Deleting credit card with ID: {}&quot;, id);</span>
+<span class="nc bnc" id="L135" title="All 2 branches missed.">        if (!creditCardRepository.existsById(id)) {</span>
+<span class="nc" id="L136">            log.error(&quot;Credit card not found with ID: {}&quot;, id);</span>
+<span class="nc" id="L137">            throw new ResourceNotFoundException(&quot;Credit card not found with id: &quot; + id);</span>
+        }
+<span class="nc" id="L139">        creditCardRepository.deleteById(id);</span>
+<span class="nc" id="L140">        log.info(&quot;Credit card deleted successfully with ID: {}&quot;, id);</span>
+<span class="nc" id="L141">    }</span>
+
+    private CreditCardDTO mapToDTO (CreditCard creditCard){
+<span class="nc" id="L144">        return modelMapper.map(creditCard,CreditCardDTO.class);</span>
+    }
+
+    private CreditCard mapToEntity (CreditCardDTO dto){
+<span class="nc" id="L148">        return modelMapper.map(dto,CreditCard.class);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

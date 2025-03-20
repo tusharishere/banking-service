@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DebitCardServiceImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">BankingServiceApplication Coverage Results</a> &gt; <a href="index.source.html" class="el_package">com.banking.service.impl</a> &gt; <span class="el_source">DebitCardServiceImpl.java</span></div><h1>DebitCardServiceImpl.java</h1><pre class="source lang-java linenums">package com.banking.service.impl;
+
+import com.banking.entity.Account;
+import com.banking.entity.DebitCard;
+import com.banking.exception.ResourceNotFoundException;
+import com.banking.payload.DebitCardDTO;
+import com.banking.repository.AccountRepository;
+import com.banking.repository.DebitCardRepository;
+import com.banking.service.DebitCardService;
+import jakarta.transaction.Transactional;
+import lombok.extern.slf4j.Slf4j;
+import org.modelmapper.ModelMapper;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+<span class="fc" id="L18">@Slf4j</span>
+@Service
+public class DebitCardServiceImpl implements DebitCardService {
+
+    private final DebitCardRepository debitCardRepository;
+    private final AccountRepository accountRepository;
+    private final ModelMapper modelMapper;
+
+<span class="fc" id="L26">    public DebitCardServiceImpl(DebitCardRepository debitCardRepository, AccountRepository accountRepository, ModelMapper modelMapper) {</span>
+<span class="fc" id="L27">        this.debitCardRepository = debitCardRepository;</span>
+<span class="fc" id="L28">        this.accountRepository = accountRepository;</span>
+<span class="fc" id="L29">        this.modelMapper = modelMapper;</span>
+<span class="fc" id="L30">    }</span>
+
+    @Override
+    @Transactional
+    public DebitCardDTO createDebitCard(DebitCardDTO debitCardDTO) {
+<span class="nc" id="L35">        log.info(&quot;Creating debit card for account ID: {}&quot;, debitCardDTO.getAccountId());</span>
+<span class="nc" id="L36">        Account account = accountRepository.findById(debitCardDTO.getAccountId())</span>
+<span class="nc" id="L37">                .orElseThrow(() -&gt; {</span>
+<span class="nc" id="L38">                    log.error(&quot;Account not found with ID: {}&quot;, debitCardDTO.getAccountId());</span>
+<span class="nc" id="L39">                    return new ResourceNotFoundException(&quot;Account not found with id: &quot; + debitCardDTO.getAccountId());</span>
+                });
+
+<span class="nc bnc" id="L42" title="All 2 branches missed.">        if (debitCardRepository.existsByCardNumber(debitCardDTO.getCardNumber())) {</span>
+<span class="nc" id="L43">            log.error(&quot;Debit card number already exists: {}&quot;, debitCardDTO.getCardNumber());</span>
+<span class="nc" id="L44">            throw new IllegalArgumentException(&quot;Card number already exists&quot;);</span>
+        }
+
+<span class="nc bnc" id="L47" title="All 2 branches missed.">        if (debitCardRepository.existsByAccountId(debitCardDTO.getAccountId())) {</span>
+<span class="nc" id="L48">            log.error(&quot;Account already has a debit card, ID: {}&quot;, debitCardDTO.getAccountId());</span>
+<span class="nc" id="L49">            throw new IllegalArgumentException(&quot;Account already has a debit card&quot;);</span>
+        }
+
+<span class="nc" id="L52">        DebitCard debitCard = mapToEntity(debitCardDTO);</span>
+<span class="nc" id="L53">        debitCard.setAccount(account);</span>
+<span class="nc" id="L54">        DebitCard savedCard = debitCardRepository.save(debitCard);</span>
+<span class="nc" id="L55">        log.info(&quot;Debit card created successfully for account ID: {}&quot;, debitCardDTO.getAccountId());</span>
+<span class="nc" id="L56">        return mapToDTO(savedCard);</span>
+    }
+
+    @Override
+    public DebitCardDTO getDebitCardById(Long id) {
+<span class="nc" id="L61">        log.info(&quot;Fetching debit card by ID: {}&quot;, id);</span>
+<span class="nc" id="L62">        DebitCard debitCard = debitCardRepository.findById(id)</span>
+<span class="nc" id="L63">                .orElseThrow(() -&gt; {</span>
+<span class="nc" id="L64">                    log.error(&quot;Debit card not found with ID: {}&quot;, id);</span>
+<span class="nc" id="L65">                    return new ResourceNotFoundException(&quot;Debit card not found with id: &quot; + id);</span>
+                });
+<span class="nc" id="L67">        log.info(&quot;Debit card fetched successfully with ID: {}&quot;, id);</span>
+<span class="nc" id="L68">        return mapToDTO(debitCard);</span>
+    }
+
+    @Override
+    public DebitCardDTO getDebitCardByCardNumber(String cardNumber) {
+<span class="nc" id="L73">        log.info(&quot;Fetching debit card by card number: {}&quot;, cardNumber);</span>
+<span class="nc" id="L74">        DebitCard debitCard = debitCardRepository.findByCardNumber(cardNumber)</span>
+<span class="nc" id="L75">                .orElseThrow(() -&gt; {</span>
+<span class="nc" id="L76">                    log.error(&quot;Debit card not found with number: {}&quot;, cardNumber);</span>
+<span class="nc" id="L77">                    return new ResourceNotFoundException(&quot;Debit card not found with number: &quot; + cardNumber);</span>
+                });
+<span class="nc" id="L79">        log.info(&quot;Debit card fetched successfully with number: {}&quot;, cardNumber);</span>
+<span class="nc" id="L80">        return mapToDTO(debitCard);</span>
+    }
+
+    @Override
+    public DebitCardDTO getDebitCardByAccountId(Long accountId) {
+<span class="nc" id="L85">        log.info(&quot;Fetching debit card by account ID: {}&quot;, accountId);</span>
+<span class="nc" id="L86">        DebitCard debitCard = debitCardRepository.findByAccountId(accountId)</span>
+<span class="nc" id="L87">                .orElseThrow(() -&gt; {</span>
+<span class="nc" id="L88">                    log.error(&quot;Debit card not found for account ID: {}&quot;, accountId);</span>
+<span class="nc" id="L89">                    return new ResourceNotFoundException(&quot;Debit card not found for account id: &quot; + accountId);</span>
+                });
+<span class="nc" id="L91">        log.info(&quot;Debit card fetched successfully for account ID: {}&quot;, accountId);</span>
+<span class="nc" id="L92">        return mapToDTO(debitCard);</span>
+
+    }
+
+    @Override
+    public List&lt;DebitCardDTO&gt; getAllDebitCards() {
+<span class="nc" id="L98">        log.info(&quot;Fetching all debit cards&quot;);</span>
+<span class="nc" id="L99">        List&lt;DebitCard&gt; debitCards = debitCardRepository.findAll();</span>
+<span class="nc" id="L100">        log.info(&quot;Fetched {} debit cards&quot;, debitCards.size());</span>
+<span class="nc" id="L101">        return debitCards.stream().map(this::mapToDTO).collect(Collectors.toList());</span>
+    }
+
+    @Override
+    @Transactional
+    public DebitCardDTO updateDebitCard(Long id, DebitCardDTO debitCardDTO) {
+<span class="nc" id="L107">        log.info(&quot;Updating debit card with ID: {}&quot;, id);</span>
+<span class="nc" id="L108">        DebitCard debitCard = debitCardRepository.findById(id)</span>
+<span class="nc" id="L109">                .orElseThrow(() -&gt; {</span>
+<span class="nc" id="L110">                    log.error(&quot;Debit card not found with ID: {}&quot;, id);</span>
+<span class="nc" id="L111">                    return new ResourceNotFoundException(&quot;Debit card not found with id: &quot; + id);</span>
+                });
+
+<span class="nc bnc" id="L114" title="All 2 branches missed.">        if (!debitCard.getCardNumber().equals(debitCardDTO.getCardNumber()) &amp;&amp;</span>
+<span class="nc bnc" id="L115" title="All 2 branches missed.">                debitCardRepository.existsByCardNumber(debitCardDTO.getCardNumber())) {</span>
+<span class="nc" id="L116">            log.error(&quot;Debit card number already exists: {}&quot;, debitCardDTO.getCardNumber());</span>
+<span class="nc" id="L117">            throw new IllegalArgumentException(&quot;Card number already exists&quot;);</span>
+        }
+
+<span class="nc" id="L120">        debitCard.setExpiryDate(debitCardDTO.getExpiryDate());</span>
+<span class="nc" id="L121">        debitCard.setActive(debitCardDTO.isActive());</span>
+<span class="nc" id="L122">        DebitCard updatedCard = debitCardRepository.save(debitCard);</span>
+<span class="nc" id="L123">        log.info(&quot;Debit card updated successfully with ID: {}&quot;, id);</span>
+<span class="nc" id="L124">        return mapToDTO(updatedCard);</span>
+    }
+
+    @Override
+    @Transactional
+    public void deleteDebitCard(Long id) {
+<span class="nc" id="L130">        log.info(&quot;Deleting debit card with ID: {}&quot;, id);</span>
+<span class="nc bnc" id="L131" title="All 2 branches missed.">        if (!debitCardRepository.existsById(id)) {</span>
+<span class="nc" id="L132">            log.error(&quot;Debit card not found with ID: {}&quot;, id);</span>
+<span class="nc" id="L133">            throw new ResourceNotFoundException(&quot;Debit card not found with id: &quot; + id);</span>
+        }
+<span class="nc" id="L135">        debitCardRepository.deleteById(id);</span>
+<span class="nc" id="L136">        log.info(&quot;Debit card deleted successfully with ID: {}&quot;, id);</span>
+<span class="nc" id="L137">    }</span>
+
+    private DebitCardDTO mapToDTO(DebitCard debitCard) {
+<span class="nc" id="L140">        return modelMapper.map(debitCard,DebitCardDTO.class);</span>
+    }
+
+    private DebitCard mapToEntity(DebitCardDTO debitCardDTO) {
+<span class="nc" id="L144">        return modelMapper.map(debitCardDTO,DebitCard.class);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>
