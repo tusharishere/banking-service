@@ -1,6 +1,6 @@
 package com.banking.payload;
 
-import enums.AccountType;
+import com.banking.entity.enums.AccountType;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;

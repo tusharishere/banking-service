@@ -9,7 +9,7 @@ import com.banking.repository.CreditCardRepository;
 import com.banking.repository.DebitCardRepository;
 import com.banking.repository.TransactionRepository;
 import com.banking.service.TransactionService;
-import enums.TransactionType;
+import com.banking.entity.enums.TransactionType;
 import jakarta.transaction.Transactional;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;

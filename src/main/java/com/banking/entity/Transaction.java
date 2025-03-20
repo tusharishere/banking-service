@@ -1,7 +1,7 @@
 package com.banking.entity;
 
-import enums.TransactionStatus;
-import enums.TransactionType;
+import com.banking.entity.enums.TransactionStatus;
+import com.banking.entity.enums.TransactionType;
 import jakarta.persistence.*;
 import lombok.*;
 

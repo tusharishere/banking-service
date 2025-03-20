@@ -1,7 +1,8 @@
 package com.banking.entity;
 
-import enums.AccountType;
+import com.banking.entity.enums.AccountType;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.DecimalMin;
 import lombok.*;
 
 import java.math.BigDecimal;
@@ -32,6 +33,7 @@ public class Account {
     @Column(name = "account_type", nullable = false)
     private AccountType accountType;
 
+    @DecimalMin(value = "0.0", message = "Balance cannot be negative")
     @Column(name ="balance",nullable = false)
     private BigDecimal balance;
 
@@ -41,10 +43,10 @@ public class Account {
     @Column(name ="active",nullable = false)
     private boolean active = true;
 
-    @OneToOne(mappedBy = "account", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToOne(mappedBy = "account", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private DebitCard debitCard;
 
-    @OneToOne(mappedBy = "account", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToOne(mappedBy = "account", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private CreditCard creditCard;
 
 }
