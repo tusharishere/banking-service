@@ -75,8 +75,7 @@ public class CustomerServiceImpl implements CustomerService {
             throw new IllegalArgumentException("Identification number already exists");
         }
 
-        customer.setFirstName(customerDTO.getFirstName());
-        customer.setLastName(customerDTO.getLastName());
+        customer.setName(customerDTO.getName());
         customer.setEmail(customerDTO.getEmail());
         customer.setPhoneNumber(customerDTO.getPhoneNumber());
         customer.setAddress(customerDTO.getAddress());

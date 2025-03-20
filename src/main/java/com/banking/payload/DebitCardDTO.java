@@ -16,7 +16,6 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class DebitCardDTO {
-    private Long id;
 
     private String cardNumber;
 
@@ -33,5 +32,4 @@ public class DebitCardDTO {
 
     private boolean active;
 
-    private List<Long> transactionIds;
 }

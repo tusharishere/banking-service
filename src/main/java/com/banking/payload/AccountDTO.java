@@ -16,7 +16,6 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AccountDTO {
-    private Long id;
 
     private String accountNumber;
 

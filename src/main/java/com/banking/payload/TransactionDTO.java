@@ -16,7 +16,6 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 public class TransactionDTO {
-    private Long id;
 
     private String transactionReference;
 
@@ -40,5 +39,7 @@ public class TransactionDTO {
     private Long creditCardId;
 
     private String status;
+
+    private LocalDateTime transactionTimestamp;
 
 }

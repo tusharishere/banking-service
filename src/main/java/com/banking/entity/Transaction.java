@@ -48,5 +48,8 @@ public class Transaction {
     @Column(name = "status", nullable = false)
     private TransactionStatus status;
 
+    @Column(name ="transaction_timestamp")
+    private LocalDateTime transactionTimestamp;
+
 
 }

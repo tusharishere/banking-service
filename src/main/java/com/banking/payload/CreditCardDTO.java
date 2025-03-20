@@ -18,7 +18,6 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CreditCardDTO {
-    private Long id;
 
     private String cardNumber;
 
@@ -40,6 +39,4 @@ public class CreditCardDTO {
     private BigDecimal availableCredit;
 
     private boolean active;
-
-    private List<Long> transactionIds;
 }
