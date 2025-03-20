@@ -58,32 +58,42 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public CustomerDTO getCustomerByEmail(String email) {
-
+        log.info("Fetching customer by email: {}", email);
         Customer customer = customerRepository.findByEmail(email)
-                .orElseThrow(() -> new ResourceNotFoundException("Customer not found with email: " + email));
+                .orElseThrow(() -> {
+                    log.error("Customer not found with email: {}", email);
+                    return new ResourceNotFoundException("Customer not found with email: " + email);
+                });
+        log.info("Customer fetched successfully with email: {}", email);
         return mapToDTO(customer);
     }
 
     @Override
     public List<CustomerDTO> getAllCustomers() {
+        log.info("Fetching all customers");
         List<Customer> customers = customerRepository.findAll();
+        log.info("Total customers fetched: {}", customers.size());
         return customers.stream().map(this::mapToDTO).collect(Collectors.toList());
     }
 
     @Override
     @Transactional
     public CustomerDTO updateCustomer(Long id, CustomerDTO customerDTO) {
+        log.info("Updating customer with ID: {}", id);
         Customer customer = customerRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Customer not found with id: " + id));
-
-
+                .orElseThrow(() -> {
+                    log.error("Customer not found with ID: {}", id);
+                    return new ResourceNotFoundException("Customer not found with id: " + id);
+                });
         if (!customer.getEmail().equals(customerDTO.getEmail()) &&
                 customerRepository.existsByEmail(customerDTO.getEmail())) {
+            log.warn("Email already exists: {}", customerDTO.getEmail());
             throw new IllegalArgumentException("Email already exists");
         }
 
         if (!customer.getIdentificationNumber().equals(customerDTO.getIdentificationNumber()) &&
                 customerRepository.existsByIdentificationNumber(customerDTO.getIdentificationNumber())) {
+            log.warn("Identification number already exists: {}", customerDTO.getIdentificationNumber());
             throw new IllegalArgumentException("Identification number already exists");
         }
 
@@ -93,20 +103,25 @@ public class CustomerServiceImpl implements CustomerService {
         customer.setAddress(customerDTO.getAddress());
 
         Customer updatedCustomer = customerRepository.save(customer);
+        log.info("Customer updated successfully with ID: {}", id);
         return mapToDTO(updatedCustomer);
     }
 
     @Override
     @Transactional
     public void deleteCustomer(Long id) {
+        log.info("Deleting customer with ID: {}", id);
         if (!customerRepository.existsById(id)) {
+            log.error("Customer not found with ID: {}", id);
             throw new ResourceNotFoundException("Customer not found with id: " + id);
         }
         customerRepository.deleteById(id);
+        log.info("Customer deleted successfully with ID: {}", id);
     }
 
     @Override
     public boolean existsByEmail(String email) {
+        log.info("Checking existence of customer by email: {}", email);
         return customerRepository.existsByEmail(email);
     }
 
