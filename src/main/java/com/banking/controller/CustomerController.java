@@ -35,24 +35,26 @@ public class CustomerController {
     @GetMapping("/email/{email}")
     public ResponseEntity<CustomerDTO> getCustomerByEmail(@PathVariable String email) {
         CustomerDTO customerDTO = customerService.getCustomerByEmail(email);
-        return ResponseEntity.ok(customerDTO);
+        return new ResponseEntity<>(customerDTO,HttpStatus.OK);
     }
 
     @GetMapping
     public ResponseEntity<List<CustomerDTO>> getAllCustomers() {
         List<CustomerDTO> customers = customerService.getAllCustomers();
-        return ResponseEntity.ok(customers);
+        return new ResponseEntity<>(customers,HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteCustomer(@PathVariable Long id) {
+    public ResponseEntity<String> deleteCustomer(@PathVariable Long id) {
         customerService.deleteCustomer(id);
-        return ResponseEntity.noContent().build();
+        return new ResponseEntity<>("Deleted Successfully",HttpStatus.OK);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<CustomerDTO> updateCustomer(@PathVariable Long id, @RequestBody CustomerDTO customerDTO) {
-        return ResponseEntity.ok(customerService.updateCustomer(id, customerDTO));
+    public ResponseEntity<CustomerDTO> updateCustomer(@PathVariable Long id,
+                                                      @RequestBody CustomerDTO customerDTO) {
+        CustomerDTO updatedCustomer = customerService.updateCustomer(id, customerDTO);
+        return new ResponseEntity<>(updatedCustomer,HttpStatus.OK);
     }
 
 

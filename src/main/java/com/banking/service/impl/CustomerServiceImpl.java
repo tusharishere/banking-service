@@ -80,7 +80,6 @@ public class CustomerServiceImpl implements CustomerService {
         customer.setEmail(customerDTO.getEmail());
         customer.setPhoneNumber(customerDTO.getPhoneNumber());
         customer.setAddress(customerDTO.getAddress());
-        customer.setIdentificationNumber(customerDTO.getIdentificationNumber());
 
         Customer updatedCustomer = customerRepository.save(customer);
         return mapToDTO(updatedCustomer);
