@@ -17,6 +17,8 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class TransactionDTO {
 
+    private Long id;
+
     private String transactionReference;
 
     @NotNull(message = "Amount is required")

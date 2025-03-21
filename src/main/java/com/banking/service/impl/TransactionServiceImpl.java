@@ -39,44 +39,10 @@ public class TransactionServiceImpl implements TransactionService {
     @Override
     public TransactionDTO createTransaction(TransactionDTO transactionDTO) {
         log.info("Creating transaction");
-        if (transactionDTO.getDebitCardId() == null && transactionDTO.getCreditCardId() == null) {
-            log.error("Either debit card or credit card must be provided");
-            throw new IllegalArgumentException("Either debit card or credit card must be provided");
-        }
-
-        DebitCard debitCard = null;
-        if (transactionDTO.getDebitCardId() != null) {
-            log.info("Fetching debit card by ID: {}", transactionDTO.getDebitCardId());
-            debitCard = debitCardRepository.findById(transactionDTO.getDebitCardId())
-                    .orElseThrow(() -> {
-                        log.error("Debit card not found with ID: {}", transactionDTO.getDebitCardId());
-                        return new ResourceNotFoundException("Debit card not found with id: " + transactionDTO.getDebitCardId());
-                    });
-        }
-
-        CreditCard creditCard = null;
-        if (transactionDTO.getCreditCardId() != null) {
-            log.info("Fetching credit card by ID: {}", transactionDTO.getCreditCardId());
-            creditCard = creditCardRepository.findById(transactionDTO.getCreditCardId())
-                    .orElseThrow(() -> {
-                        log.error("Credit card not found with ID: {}", transactionDTO.getCreditCardId());
-                        return new ResourceNotFoundException("Credit card not found with id: " + transactionDTO.getCreditCardId());
-                    });
-        }
-
-        if (transactionDTO.getTransactionReference() != null &&
-                transactionRepository.existsByTransactionReference(transactionDTO.getTransactionReference())) {
-            log.error("Transaction reference already exists: {}", transactionDTO.getTransactionReference());
-            throw new IllegalArgumentException("Transaction reference already exists");
-        }
-
         transactionDTO.setTransactionReference(generateTransactionReference());
         transactionDTO.setTransactionTimestamp(LocalDateTime.now());
 
-        Transaction transaction = mapToEntity(transactionDTO);
-        transaction.setDebitCard(debitCard);
-        transaction.setCreditCard(creditCard);
-
+        Transaction transaction = prepareTransaction(transactionDTO);
         Transaction savedTransaction = transactionRepository.save(transaction);
         log.info("Transaction created successfully with reference: {}", transactionDTO.getTransactionReference());
         return mapToDTO(savedTransaction);
@@ -142,29 +108,18 @@ public class TransactionServiceImpl implements TransactionService {
     @Transactional
     public TransactionDTO updateTransaction(Long id, TransactionDTO transactionDTO) {
         log.info("Updating transaction with ID: {}", id);
-        Transaction transaction = transactionRepository.findById(id)
+        Transaction existingTransaction = transactionRepository.findById(id)
                 .orElseThrow(() -> {
                     log.error("Transaction not found with ID: {}", id);
                     return new ResourceNotFoundException("Transaction not found with id: " + id);
                 });
 
-        if (transactionDTO.getTransactionReference() != null &&
-                !transaction.getTransactionReference().equals(transactionDTO.getTransactionReference()) &&
-                transactionRepository.existsByTransactionReference(transactionDTO.getTransactionReference())) {
-            log.error("Transaction reference already exists: {}", transactionDTO.getTransactionReference());
-            throw new IllegalArgumentException("Transaction reference already exists");
-        }
-
-        transaction.setTransactionReference(transactionDTO.getTransactionReference());
-        transaction.setAmount(transactionDTO.getAmount());
-        transaction.setTransactionType(TransactionType.valueOf(transactionDTO.getTransactionType()));
-        transaction.setTransactionTimestamp(transactionDTO.getTransactionTimestamp());
-
+        transactionDTO.setId(existingTransaction.getId());
+        Transaction transaction = prepareTransaction(transactionDTO);
         Transaction updatedTransaction = transactionRepository.save(transaction);
         log.info("Transaction updated successfully with ID: {}", id);
         return mapToDTO(updatedTransaction);
     }
-
     @Override
     public void deleteTransaction(Long id) {
         log.info("Deleting transaction with ID: {}", id);
@@ -179,12 +134,65 @@ public class TransactionServiceImpl implements TransactionService {
     private String generateTransactionReference() {
         return "TXN-" + UUID.randomUUID().toString().substring(0, 8).toUpperCase();
     }
+    private Transaction prepareTransaction(TransactionDTO transactionDTO) {
+        if (transactionDTO.getDebitCardId() == null && transactionDTO.getCreditCardId() == null) {
+            log.error("Either debit card or credit card must be provided");
+            throw new IllegalArgumentException("Either debit card or credit card must be provided");
+        }
 
-    private Transaction mapToEntity(TransactionDTO dto){
-        return modelMapper.map(dto,Transaction.class);
+        DebitCard debitCard = null;
+        if (transactionDTO.getDebitCardId() != null) {
+            log.info("Fetching debit card by ID: {}", transactionDTO.getDebitCardId());
+            debitCard = debitCardRepository.findById(transactionDTO.getDebitCardId())
+                    .orElseThrow(() -> {
+                        log.error("Debit card not found with ID: {}", transactionDTO.getDebitCardId());
+                        return new ResourceNotFoundException("Debit card not found with id: " + transactionDTO.getDebitCardId());
+                    });
+        }
+
+        CreditCard creditCard = null;
+        if (transactionDTO.getCreditCardId() != null) {
+            log.info("Fetching credit card by ID: {}", transactionDTO.getCreditCardId());
+            creditCard = creditCardRepository.findById(transactionDTO.getCreditCardId())
+                    .orElseThrow(() -> {
+                        log.error("Credit card not found with ID: {}", transactionDTO.getCreditCardId());
+                        return new ResourceNotFoundException("Credit card not found with id: " + transactionDTO.getCreditCardId());
+                    });
+        }
+
+        if (transactionDTO.getTransactionReference() != null &&
+                transactionRepository.existsByTransactionReference(transactionDTO.getTransactionReference())) {
+            log.error("Transaction reference already exists: {}", transactionDTO.getTransactionReference());
+            throw new IllegalArgumentException("Transaction reference already exists");
+        }
+
+        Transaction transaction = mapToEntity(transactionDTO);
+        transaction.setDebitCard(debitCard);
+        transaction.setCreditCard(creditCard);
+        return transaction;
+    }
+    private Transaction mapToEntity(TransactionDTO dto) {
+        Transaction transaction = modelMapper.map(dto, Transaction.class);
+
+        if (dto.getTransactionType() != null) {
+            transaction.setTransactionType(TransactionType.valueOf(dto.getTransactionType()));
+        }
+
+        return transaction;
     }
 
-    private TransactionDTO mapToDTO(Transaction transaction){
-        return modelMapper.map(transaction,TransactionDTO.class);
+    private TransactionDTO mapToDTO(Transaction transaction) {
+        TransactionDTO dto = modelMapper.map(transaction, TransactionDTO.class);
+
+        if (transaction.getDebitCard() != null) {
+            dto.setDebitCardId(transaction.getDebitCard().getId());
+        }
+
+        if (transaction.getCreditCard() != null) {
+            dto.setCreditCardId(transaction.getCreditCard().getId());
+        }
+
+        return dto;
     }
+
 }
