@@ -22,39 +22,39 @@ public class CustomerController {
 
     @PostMapping(&quot;/add-customer&quot;)
     public ResponseEntity&lt;CustomerDTO&gt; createCustomer(@Valid @RequestBody CustomerDTO customerDTO) {
-<span class="nc" id="L25">        CustomerDTO createdCustomer = customerService.createCustomer(customerDTO);</span>
-<span class="nc" id="L26">        return new ResponseEntity&lt;&gt;(createdCustomer, HttpStatus.CREATED);</span>
+<span class="fc" id="L25">        CustomerDTO createdCustomer = customerService.createCustomer(customerDTO);</span>
+<span class="fc" id="L26">        return new ResponseEntity&lt;&gt;(createdCustomer, HttpStatus.CREATED);</span>
     }
 
     @GetMapping(&quot;/{id}&quot;)
     public ResponseEntity&lt;CustomerDTO&gt; getCustomerById(@PathVariable Long id) {
-<span class="nc" id="L31">        CustomerDTO customerDTO = customerService.getCustomerById(id);</span>
-<span class="nc" id="L32">        return new ResponseEntity&lt;&gt;(customerDTO,HttpStatus.OK);</span>
+<span class="fc" id="L31">        CustomerDTO customerDTO = customerService.getCustomerById(id);</span>
+<span class="fc" id="L32">        return new ResponseEntity&lt;&gt;(customerDTO,HttpStatus.OK);</span>
     }
 
     @GetMapping(&quot;/email/{email}&quot;)
     public ResponseEntity&lt;CustomerDTO&gt; getCustomerByEmail(@PathVariable String email) {
-<span class="nc" id="L37">        CustomerDTO customerDTO = customerService.getCustomerByEmail(email);</span>
-<span class="nc" id="L38">        return new ResponseEntity&lt;&gt;(customerDTO,HttpStatus.OK);</span>
+<span class="fc" id="L37">        CustomerDTO customerDTO = customerService.getCustomerByEmail(email);</span>
+<span class="fc" id="L38">        return new ResponseEntity&lt;&gt;(customerDTO,HttpStatus.OK);</span>
     }
 
     @GetMapping
     public ResponseEntity&lt;List&lt;CustomerDTO&gt;&gt; getAllCustomers() {
-<span class="nc" id="L43">        List&lt;CustomerDTO&gt; customers = customerService.getAllCustomers();</span>
-<span class="nc" id="L44">        return new ResponseEntity&lt;&gt;(customers,HttpStatus.OK);</span>
+<span class="fc" id="L43">        List&lt;CustomerDTO&gt; customers = customerService.getAllCustomers();</span>
+<span class="fc" id="L44">        return new ResponseEntity&lt;&gt;(customers,HttpStatus.OK);</span>
     }
 
     @DeleteMapping(&quot;/{id}&quot;)
     public ResponseEntity&lt;String&gt; deleteCustomer(@PathVariable Long id) {
-<span class="nc" id="L49">        customerService.deleteCustomer(id);</span>
-<span class="nc" id="L50">        return new ResponseEntity&lt;&gt;(&quot;Deleted Successfully&quot;,HttpStatus.OK);</span>
+<span class="fc" id="L49">        customerService.deleteCustomer(id);</span>
+<span class="fc" id="L50">        return new ResponseEntity&lt;&gt;(&quot;Deleted Successfully&quot;,HttpStatus.OK);</span>
     }
 
     @PutMapping(&quot;/{id}&quot;)
     public ResponseEntity&lt;CustomerDTO&gt; updateCustomer(@PathVariable Long id,
                                                       @RequestBody CustomerDTO customerDTO) {
-<span class="nc" id="L56">        CustomerDTO updatedCustomer = customerService.updateCustomer(id, customerDTO);</span>
-<span class="nc" id="L57">        return new ResponseEntity&lt;&gt;(updatedCustomer,HttpStatus.OK);</span>
+<span class="fc" id="L56">        CustomerDTO updatedCustomer = customerService.updateCustomer(id, customerDTO);</span>
+<span class="fc" id="L57">        return new ResponseEntity&lt;&gt;(updatedCustomer,HttpStatus.OK);</span>
     }
 
 

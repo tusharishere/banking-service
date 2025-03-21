@@ -28,96 +28,96 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     @Transactional
     public CustomerDTO createCustomer(CustomerDTO customerDTO) {
-<span class="nc" id="L31">        log.info(&quot;Creating customer with email: {}&quot;, customerDTO.getEmail());</span>
-<span class="nc bnc" id="L32" title="All 2 branches missed.">        if (customerRepository.existsByEmail(customerDTO.getEmail())) {</span>
-<span class="nc" id="L33">            log.warn(&quot;Email already exists: {}&quot;, customerDTO.getEmail());</span>
-<span class="nc" id="L34">            throw new IllegalArgumentException(&quot;Email already exists&quot;);</span>
+<span class="fc" id="L31">        log.info(&quot;Creating customer with email: {}&quot;, customerDTO.getEmail());</span>
+<span class="fc bfc" id="L32" title="All 2 branches covered.">        if (customerRepository.existsByEmail(customerDTO.getEmail())) {</span>
+<span class="fc" id="L33">            log.warn(&quot;Email already exists: {}&quot;, customerDTO.getEmail());</span>
+<span class="fc" id="L34">            throw new IllegalArgumentException(&quot;Email already exists&quot;);</span>
         }
-<span class="nc bnc" id="L36" title="All 2 branches missed.">        if (customerRepository.existsByIdentificationNumber(customerDTO.getIdentificationNumber())) {</span>
-<span class="nc" id="L37">            log.warn(&quot;Identification number already exists: {}&quot;, customerDTO.getIdentificationNumber());</span>
-<span class="nc" id="L38">            throw new IllegalArgumentException(&quot;Identification number already exists&quot;);</span>
+<span class="fc bfc" id="L36" title="All 2 branches covered.">        if (customerRepository.existsByIdentificationNumber(customerDTO.getIdentificationNumber())) {</span>
+<span class="fc" id="L37">            log.warn(&quot;Identification number already exists: {}&quot;, customerDTO.getIdentificationNumber());</span>
+<span class="fc" id="L38">            throw new IllegalArgumentException(&quot;Identification number already exists&quot;);</span>
         }
 
-<span class="nc" id="L41">        Customer customer = mapToEntity(customerDTO);</span>
-<span class="nc" id="L42">        Customer savedCustomer = customerRepository.save(customer);</span>
-<span class="nc" id="L43">        log.info(&quot;Customer created successfully with ID: {}&quot;, savedCustomer.getId());</span>
-<span class="nc" id="L44">        return mapToDTO(savedCustomer);</span>
+<span class="fc" id="L41">        Customer customer = mapToEntity(customerDTO);</span>
+<span class="fc" id="L42">        Customer savedCustomer = customerRepository.save(customer);</span>
+<span class="fc" id="L43">        log.info(&quot;Customer created successfully with ID: {}&quot;, savedCustomer.getId());</span>
+<span class="fc" id="L44">        return mapToDTO(savedCustomer);</span>
     }
 
     @Override
     public CustomerDTO getCustomerById(Long id) {
-<span class="nc" id="L49">        log.info(&quot;Fetching customer by ID: {}&quot;, id);</span>
-<span class="nc" id="L50">        Customer customer = customerRepository.findById(id)</span>
-<span class="nc" id="L51">                .orElseThrow(() -&gt; {</span>
-<span class="nc" id="L52">                    log.error(&quot;Customer not found with ID: {}&quot;, id);</span>
-<span class="nc" id="L53">                    return new ResourceNotFoundException(&quot;Customer not found with id: &quot; + id);</span>
+<span class="fc" id="L49">        log.info(&quot;Fetching customer by ID: {}&quot;, id);</span>
+<span class="fc" id="L50">        Customer customer = customerRepository.findById(id)</span>
+<span class="fc" id="L51">                .orElseThrow(() -&gt; {</span>
+<span class="fc" id="L52">                    log.error(&quot;Customer not found with ID: {}&quot;, id);</span>
+<span class="fc" id="L53">                    return new ResourceNotFoundException(&quot;Customer not found with id: &quot; + id);</span>
                 });
-<span class="nc" id="L55">        log.info(&quot;Customer fetched successfully with ID: {}&quot;, id);</span>
-<span class="nc" id="L56">        return mapToDTO(customer);</span>
+<span class="fc" id="L55">        log.info(&quot;Customer fetched successfully with ID: {}&quot;, id);</span>
+<span class="fc" id="L56">        return mapToDTO(customer);</span>
     }
 
     @Override
     public CustomerDTO getCustomerByEmail(String email) {
-<span class="nc" id="L61">        log.info(&quot;Fetching customer by email: {}&quot;, email);</span>
-<span class="nc" id="L62">        Customer customer = customerRepository.findByEmail(email)</span>
-<span class="nc" id="L63">                .orElseThrow(() -&gt; {</span>
-<span class="nc" id="L64">                    log.error(&quot;Customer not found with email: {}&quot;, email);</span>
-<span class="nc" id="L65">                    return new ResourceNotFoundException(&quot;Customer not found with email: &quot; + email);</span>
+<span class="fc" id="L61">        log.info(&quot;Fetching customer by email: {}&quot;, email);</span>
+<span class="fc" id="L62">        Customer customer = customerRepository.findByEmail(email)</span>
+<span class="fc" id="L63">                .orElseThrow(() -&gt; {</span>
+<span class="fc" id="L64">                    log.error(&quot;Customer not found with email: {}&quot;, email);</span>
+<span class="fc" id="L65">                    return new ResourceNotFoundException(&quot;Customer not found with email: &quot; + email);</span>
                 });
-<span class="nc" id="L67">        log.info(&quot;Customer fetched successfully with email: {}&quot;, email);</span>
-<span class="nc" id="L68">        return mapToDTO(customer);</span>
+<span class="fc" id="L67">        log.info(&quot;Customer fetched successfully with email: {}&quot;, email);</span>
+<span class="fc" id="L68">        return mapToDTO(customer);</span>
     }
 
     @Override
     public List&lt;CustomerDTO&gt; getAllCustomers() {
-<span class="nc" id="L73">        log.info(&quot;Fetching all customers&quot;);</span>
-<span class="nc" id="L74">        List&lt;Customer&gt; customers = customerRepository.findAll();</span>
-<span class="nc" id="L75">        log.info(&quot;Total customers fetched: {}&quot;, customers.size());</span>
-<span class="nc" id="L76">        return customers.stream().map(this::mapToDTO).collect(Collectors.toList());</span>
+<span class="fc" id="L73">        log.info(&quot;Fetching all customers&quot;);</span>
+<span class="fc" id="L74">        List&lt;Customer&gt; customers = customerRepository.findAll();</span>
+<span class="fc" id="L75">        log.info(&quot;Total customers fetched: {}&quot;, customers.size());</span>
+<span class="fc" id="L76">        return customers.stream().map(this::mapToDTO).collect(Collectors.toList());</span>
     }
 
     @Override
     @Transactional
     public CustomerDTO updateCustomer(Long id, CustomerDTO customerDTO) {
-<span class="nc" id="L82">        log.info(&quot;Updating customer with ID: {}&quot;, id);</span>
-<span class="nc" id="L83">        Customer customer = customerRepository.findById(id)</span>
-<span class="nc" id="L84">                .orElseThrow(() -&gt; {</span>
+<span class="fc" id="L82">        log.info(&quot;Updating customer with ID: {}&quot;, id);</span>
+<span class="fc" id="L83">        Customer customer = customerRepository.findById(id)</span>
+<span class="fc" id="L84">                .orElseThrow(() -&gt; {</span>
 <span class="nc" id="L85">                    log.error(&quot;Customer not found with ID: {}&quot;, id);</span>
 <span class="nc" id="L86">                    return new ResourceNotFoundException(&quot;Customer not found with id: &quot; + id);</span>
                 });
-<span class="nc bnc" id="L88" title="All 2 branches missed.">        if (!customer.getEmail().equals(customerDTO.getEmail()) &amp;&amp;</span>
-<span class="nc bnc" id="L89" title="All 2 branches missed.">                customerRepository.existsByEmail(customerDTO.getEmail())) {</span>
+<span class="fc bfc" id="L88" title="All 2 branches covered.">        if (!customer.getEmail().equals(customerDTO.getEmail()) &amp;&amp;</span>
+<span class="pc bpc" id="L89" title="1 of 2 branches missed.">                customerRepository.existsByEmail(customerDTO.getEmail())) {</span>
 <span class="nc" id="L90">            log.warn(&quot;Email already exists: {}&quot;, customerDTO.getEmail());</span>
 <span class="nc" id="L91">            throw new IllegalArgumentException(&quot;Email already exists&quot;);</span>
         }
 
-<span class="nc bnc" id="L94" title="All 2 branches missed.">        if (!customer.getIdentificationNumber().equals(customerDTO.getIdentificationNumber()) &amp;&amp;</span>
+<span class="pc bpc" id="L94" title="1 of 2 branches missed.">        if (!customer.getIdentificationNumber().equals(customerDTO.getIdentificationNumber()) &amp;&amp;</span>
 <span class="nc bnc" id="L95" title="All 2 branches missed.">                customerRepository.existsByIdentificationNumber(customerDTO.getIdentificationNumber())) {</span>
 <span class="nc" id="L96">            log.warn(&quot;Identification number already exists: {}&quot;, customerDTO.getIdentificationNumber());</span>
 <span class="nc" id="L97">            throw new IllegalArgumentException(&quot;Identification number already exists&quot;);</span>
         }
 
-<span class="nc" id="L100">        customer.setName(customerDTO.getName());</span>
-<span class="nc" id="L101">        customer.setEmail(customerDTO.getEmail());</span>
-<span class="nc" id="L102">        customer.setPhoneNumber(customerDTO.getPhoneNumber());</span>
-<span class="nc" id="L103">        customer.setAddress(customerDTO.getAddress());</span>
+<span class="fc" id="L100">        customer.setName(customerDTO.getName());</span>
+<span class="fc" id="L101">        customer.setEmail(customerDTO.getEmail());</span>
+<span class="fc" id="L102">        customer.setPhoneNumber(customerDTO.getPhoneNumber());</span>
+<span class="fc" id="L103">        customer.setAddress(customerDTO.getAddress());</span>
 
-<span class="nc" id="L105">        Customer updatedCustomer = customerRepository.save(customer);</span>
-<span class="nc" id="L106">        log.info(&quot;Customer updated successfully with ID: {}&quot;, id);</span>
-<span class="nc" id="L107">        return mapToDTO(updatedCustomer);</span>
+<span class="fc" id="L105">        Customer updatedCustomer = customerRepository.save(customer);</span>
+<span class="fc" id="L106">        log.info(&quot;Customer updated successfully with ID: {}&quot;, id);</span>
+<span class="fc" id="L107">        return mapToDTO(updatedCustomer);</span>
     }
 
     @Override
     @Transactional
     public void deleteCustomer(Long id) {
-<span class="nc" id="L113">        log.info(&quot;Deleting customer with ID: {}&quot;, id);</span>
-<span class="nc bnc" id="L114" title="All 2 branches missed.">        if (!customerRepository.existsById(id)) {</span>
-<span class="nc" id="L115">            log.error(&quot;Customer not found with ID: {}&quot;, id);</span>
-<span class="nc" id="L116">            throw new ResourceNotFoundException(&quot;Customer not found with id: &quot; + id);</span>
+<span class="fc" id="L113">        log.info(&quot;Deleting customer with ID: {}&quot;, id);</span>
+<span class="fc bfc" id="L114" title="All 2 branches covered.">        if (!customerRepository.existsById(id)) {</span>
+<span class="fc" id="L115">            log.error(&quot;Customer not found with ID: {}&quot;, id);</span>
+<span class="fc" id="L116">            throw new ResourceNotFoundException(&quot;Customer not found with id: &quot; + id);</span>
         }
-<span class="nc" id="L118">        customerRepository.deleteById(id);</span>
-<span class="nc" id="L119">        log.info(&quot;Customer deleted successfully with ID: {}&quot;, id);</span>
-<span class="nc" id="L120">    }</span>
+<span class="fc" id="L118">        customerRepository.deleteById(id);</span>
+<span class="fc" id="L119">        log.info(&quot;Customer deleted successfully with ID: {}&quot;, id);</span>
+<span class="fc" id="L120">    }</span>
 
     @Override
     public boolean existsByEmail(String email) {
@@ -126,11 +126,11 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     private CustomerDTO mapToDTO(Customer customer) {
-<span class="nc" id="L129">        return modelMapper.map(customer, CustomerDTO.class);</span>
+<span class="fc" id="L129">        return modelMapper.map(customer, CustomerDTO.class);</span>
     }
 
     private Customer mapToEntity(CustomerDTO dto) {
-<span class="nc" id="L133">        return modelMapper.map(dto, Customer.class);</span>
+<span class="fc" id="L133">        return modelMapper.map(dto, Customer.class);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

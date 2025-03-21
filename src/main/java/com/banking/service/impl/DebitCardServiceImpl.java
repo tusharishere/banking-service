@@ -111,11 +111,11 @@ public class DebitCardServiceImpl implements DebitCardService {
                     return new ResourceNotFoundException("Debit card not found with id: " + id);
                 });
 
-        if (!debitCard.getCardNumber().equals(debitCardDTO.getCardNumber()) &&
-                debitCardRepository.existsByCardNumber(debitCardDTO.getCardNumber())) {
-            log.error("Debit card number already exists: {}", debitCardDTO.getCardNumber());
-            throw new IllegalArgumentException("Card number already exists");
-        }
+//        if (!debitCard.getCardNumber().equals(debitCardDTO.getCardNumber()) &&
+//                debitCardRepository.existsByCardNumber(debitCardDTO.getCardNumber())) {
+//            log.error("Debit card number already exists: {}", debitCardDTO.getCardNumber());
+//            throw new IllegalArgumentException("Card number already exists");
+//        }
 
         debitCard.setExpiryDate(debitCardDTO.getExpiryDate());
         debitCard.setActive(debitCardDTO.isActive());

@@ -38,40 +38,40 @@ public class TransactionServiceImpl implements TransactionService {
 
     @Override
     public TransactionDTO createTransaction(TransactionDTO transactionDTO) {
-<span class="nc" id="L41">        log.info(&quot;Creating transaction&quot;);</span>
-<span class="nc bnc" id="L42" title="All 4 branches missed.">        if (transactionDTO.getDebitCardId() == null &amp;&amp; transactionDTO.getCreditCardId() == null) {</span>
+<span class="fc" id="L41">        log.info(&quot;Creating transaction&quot;);</span>
+<span class="pc bpc" id="L42" title="3 of 4 branches missed.">        if (transactionDTO.getDebitCardId() == null &amp;&amp; transactionDTO.getCreditCardId() == null) {</span>
 <span class="nc" id="L43">            log.error(&quot;Either debit card or credit card must be provided&quot;);</span>
 <span class="nc" id="L44">            throw new IllegalArgumentException(&quot;Either debit card or credit card must be provided&quot;);</span>
         }
 
-<span class="nc" id="L47">        DebitCard debitCard = null;</span>
-<span class="nc bnc" id="L48" title="All 2 branches missed.">        if (transactionDTO.getDebitCardId() != null) {</span>
-<span class="nc" id="L49">            log.info(&quot;Fetching debit card by ID: {}&quot;, transactionDTO.getDebitCardId());</span>
-<span class="nc" id="L50">            debitCard = debitCardRepository.findById(transactionDTO.getDebitCardId())</span>
-<span class="nc" id="L51">                    .orElseThrow(() -&gt; {</span>
-<span class="nc" id="L52">                        log.error(&quot;Debit card not found with ID: {}&quot;, transactionDTO.getDebitCardId());</span>
-<span class="nc" id="L53">                        return new ResourceNotFoundException(&quot;Debit card not found with id: &quot; + transactionDTO.getDebitCardId());</span>
+<span class="fc" id="L47">        DebitCard debitCard = null;</span>
+<span class="pc bpc" id="L48" title="1 of 2 branches missed.">        if (transactionDTO.getDebitCardId() != null) {</span>
+<span class="fc" id="L49">            log.info(&quot;Fetching debit card by ID: {}&quot;, transactionDTO.getDebitCardId());</span>
+<span class="fc" id="L50">            debitCard = debitCardRepository.findById(transactionDTO.getDebitCardId())</span>
+<span class="fc" id="L51">                    .orElseThrow(() -&gt; {</span>
+<span class="fc" id="L52">                        log.error(&quot;Debit card not found with ID: {}&quot;, transactionDTO.getDebitCardId());</span>
+<span class="fc" id="L53">                        return new ResourceNotFoundException(&quot;Debit card not found with id: &quot; + transactionDTO.getDebitCardId());</span>
                     });
         }
 
-<span class="nc" id="L57">        CreditCard creditCard = null;</span>
-<span class="nc bnc" id="L58" title="All 2 branches missed.">        if (transactionDTO.getCreditCardId() != null) {</span>
-<span class="nc" id="L59">            log.info(&quot;Fetching credit card by ID: {}&quot;, transactionDTO.getCreditCardId());</span>
-<span class="nc" id="L60">            creditCard = creditCardRepository.findById(transactionDTO.getCreditCardId())</span>
-<span class="nc" id="L61">                    .orElseThrow(() -&gt; {</span>
-<span class="nc" id="L62">                        log.error(&quot;Credit card not found with ID: {}&quot;, transactionDTO.getCreditCardId());</span>
-<span class="nc" id="L63">                        return new ResourceNotFoundException(&quot;Credit card not found with id: &quot; + transactionDTO.getCreditCardId());</span>
+<span class="fc" id="L57">        CreditCard creditCard = null;</span>
+<span class="fc bfc" id="L58" title="All 2 branches covered.">        if (transactionDTO.getCreditCardId() != null) {</span>
+<span class="fc" id="L59">            log.info(&quot;Fetching credit card by ID: {}&quot;, transactionDTO.getCreditCardId());</span>
+<span class="fc" id="L60">            creditCard = creditCardRepository.findById(transactionDTO.getCreditCardId())</span>
+<span class="fc" id="L61">                    .orElseThrow(() -&gt; {</span>
+<span class="fc" id="L62">                        log.error(&quot;Credit card not found with ID: {}&quot;, transactionDTO.getCreditCardId());</span>
+<span class="fc" id="L63">                        return new ResourceNotFoundException(&quot;Credit card not found with id: &quot; + transactionDTO.getCreditCardId());</span>
                     });
         }
 
-<span class="nc bnc" id="L67" title="All 2 branches missed.">        if (transactionDTO.getTransactionReference() != null &amp;&amp;</span>
-<span class="nc bnc" id="L68" title="All 2 branches missed.">                transactionRepository.existsByTransactionReference(transactionDTO.getTransactionReference())) {</span>
+<span class="pc bpc" id="L67" title="1 of 2 branches missed.">        if (transactionDTO.getTransactionReference() != null &amp;&amp;</span>
+<span class="pc bpc" id="L68" title="1 of 2 branches missed.">                transactionRepository.existsByTransactionReference(transactionDTO.getTransactionReference())) {</span>
 <span class="nc" id="L69">            log.error(&quot;Transaction reference already exists: {}&quot;, transactionDTO.getTransactionReference());</span>
 <span class="nc" id="L70">            throw new IllegalArgumentException(&quot;Transaction reference already exists&quot;);</span>
         }
 
-<span class="nc" id="L73">        transactionDTO.setTransactionReference(generateTransactionReference());</span>
-<span class="nc" id="L74">        transactionDTO.setTransactionTimestamp(LocalDateTime.now());</span>
+<span class="fc" id="L73">        transactionDTO.setTransactionReference(generateTransactionReference());</span>
+<span class="fc" id="L74">        transactionDTO.setTransactionTimestamp(LocalDateTime.now());</span>
 
 <span class="nc" id="L76">        Transaction transaction = mapToEntity(transactionDTO);</span>
 <span class="nc" id="L77">        transaction.setDebitCard(debitCard);</span>
@@ -177,7 +177,7 @@ public class TransactionServiceImpl implements TransactionService {
 <span class="nc" id="L177">    }</span>
 
     private String generateTransactionReference() {
-<span class="nc" id="L180">        return &quot;TXN-&quot; + UUID.randomUUID().toString().substring(0, 8).toUpperCase();</span>
+<span class="fc" id="L180">        return &quot;TXN-&quot; + UUID.randomUUID().toString().substring(0, 8).toUpperCase();</span>
     }
 
     private Transaction mapToEntity(TransactionDTO dto){

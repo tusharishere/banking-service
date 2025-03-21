@@ -21,38 +21,38 @@ public class DebitCardController {
 
     @PostMapping(&quot;add-debit-card&quot;)
     public ResponseEntity&lt;DebitCardDTO&gt; createDebitCard(@Valid @RequestBody DebitCardDTO debitCardDTO) {
-<span class="nc" id="L24">        DebitCardDTO createdCard = debitCardService.createDebitCard(debitCardDTO);</span>
-<span class="nc" id="L25">        return new ResponseEntity&lt;&gt;(createdCard, HttpStatus.CREATED);</span>
+<span class="fc" id="L24">        DebitCardDTO createdCard = debitCardService.createDebitCard(debitCardDTO);</span>
+<span class="fc" id="L25">        return new ResponseEntity&lt;&gt;(createdCard, HttpStatus.CREATED);</span>
     }
 
     @GetMapping(&quot;/{id}&quot;)
     public ResponseEntity&lt;DebitCardDTO&gt; getDebitCardById(@PathVariable Long id) {
-<span class="nc" id="L30">        DebitCardDTO debitCardDTO = debitCardService.getDebitCardById(id);</span>
-<span class="nc" id="L31">        return new ResponseEntity&lt;&gt;(debitCardDTO, HttpStatus.OK);</span>
+<span class="fc" id="L30">        DebitCardDTO debitCardDTO = debitCardService.getDebitCardById(id);</span>
+<span class="fc" id="L31">        return new ResponseEntity&lt;&gt;(debitCardDTO, HttpStatus.OK);</span>
     }
 
     @GetMapping(&quot;/number/{cardNumber}&quot;)
     public ResponseEntity&lt;DebitCardDTO&gt; getDebitCardByCardNumber(@PathVariable String cardNumber) {
-<span class="nc" id="L36">        DebitCardDTO debitCardDTO = debitCardService.getDebitCardByCardNumber(cardNumber);</span>
-<span class="nc" id="L37">        return new ResponseEntity&lt;&gt;(debitCardDTO,HttpStatus.OK);</span>
+<span class="fc" id="L36">        DebitCardDTO debitCardDTO = debitCardService.getDebitCardByCardNumber(cardNumber);</span>
+<span class="fc" id="L37">        return new ResponseEntity&lt;&gt;(debitCardDTO,HttpStatus.OK);</span>
     }
 
     @GetMapping
     public ResponseEntity&lt;List&lt;DebitCardDTO&gt;&gt; getAllDebitCards() {
-<span class="nc" id="L42">        List&lt;DebitCardDTO&gt; debitCards = debitCardService.getAllDebitCards();</span>
-<span class="nc" id="L43">        return new ResponseEntity&lt;&gt;(debitCards,HttpStatus.OK);</span>
+<span class="fc" id="L42">        List&lt;DebitCardDTO&gt; debitCards = debitCardService.getAllDebitCards();</span>
+<span class="fc" id="L43">        return new ResponseEntity&lt;&gt;(debitCards,HttpStatus.OK);</span>
     }
     @PutMapping(&quot;/{id}&quot;)
     public ResponseEntity&lt;DebitCardDTO&gt; updateDebitCard(@PathVariable Long id,
                                                         @Valid @RequestBody DebitCardDTO debitCardDTO) {
-<span class="nc" id="L48">        DebitCardDTO updatedCard = debitCardService.updateDebitCard(id, debitCardDTO);</span>
-<span class="nc" id="L49">        return new ResponseEntity&lt;&gt;(updatedCard,HttpStatus.OK);</span>
+<span class="fc" id="L48">        DebitCardDTO updatedCard = debitCardService.updateDebitCard(id, debitCardDTO);</span>
+<span class="fc" id="L49">        return new ResponseEntity&lt;&gt;(updatedCard,HttpStatus.OK);</span>
     }
 
     @DeleteMapping(&quot;/{id}&quot;)
     public ResponseEntity&lt;String&gt; deleteDebitCard(@PathVariable Long id) {
-<span class="nc" id="L54">        debitCardService.deleteDebitCard(id);</span>
-<span class="nc" id="L55">        return new ResponseEntity&lt;&gt;(&quot;Deleted Successfully&quot;,HttpStatus.OK);</span>
+<span class="fc" id="L54">        debitCardService.deleteDebitCard(id);</span>
+<span class="fc" id="L55">        return new ResponseEntity&lt;&gt;(&quot;Deleted Successfully&quot;,HttpStatus.OK);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>
