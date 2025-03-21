@@ -160,12 +160,6 @@ public class TransactionServiceImpl implements TransactionService {
                     });
         }
 
-        if (transactionDTO.getTransactionReference() != null &&
-                transactionRepository.existsByTransactionReference(transactionDTO.getTransactionReference())) {
-            log.error("Transaction reference already exists: {}", transactionDTO.getTransactionReference());
-            throw new IllegalArgumentException("Transaction reference already exists");
-        }
-
         Transaction transaction = mapToEntity(transactionDTO);
         transaction.setDebitCard(debitCard);
         transaction.setCreditCard(creditCard);

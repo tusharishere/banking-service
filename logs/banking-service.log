@@ -492,3 +492,203 @@
 2025-03-21T13:43:39.526+05:30  INFO 13104 --- [banking-service] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2025-03-21T13:43:39.537+05:30  INFO 13104 --- [banking-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2025-03-21T13:43:39.558+05:30  INFO 13104 --- [banking-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-03-21T13:46:34.671+05:30  INFO 20256 --- [banking-service] [restartedMain] com.banking.BankingServiceApplication    : Starting BankingServiceApplication using Java 17.0.12 with PID 20256 (C:\Users\Asus\Desktop\banking-service\target\classes started by Asus in C:\Users\Asus\Desktop\banking-service)
+2025-03-21T13:46:34.676+05:30 DEBUG 20256 --- [banking-service] [restartedMain] com.banking.BankingServiceApplication    : Running with Spring Boot v3.3.9, Spring v6.1.17
+2025-03-21T13:46:34.678+05:30  INFO 20256 --- [banking-service] [restartedMain] com.banking.BankingServiceApplication    : No active profile set, falling back to 1 default profile: "default"
+2025-03-21T13:46:34.813+05:30  INFO 20256 --- [banking-service] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-03-21T13:46:34.814+05:30  INFO 20256 --- [banking-service] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-03-21T13:46:37.119+05:30  INFO 20256 --- [banking-service] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-21T13:46:37.382+05:30  INFO 20256 --- [banking-service] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 245 ms. Found 5 JPA repository interfaces.
+2025-03-21T13:46:38.899+05:30  INFO 20256 --- [banking-service] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-03-21T13:46:38.930+05:30  INFO 20256 --- [banking-service] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-03-21T13:46:38.932+05:30  INFO 20256 --- [banking-service] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-03-21T13:46:39.048+05:30  INFO 20256 --- [banking-service] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-03-21T13:46:39.049+05:30  INFO 20256 --- [banking-service] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4233 ms
+2025-03-21T13:46:39.413+05:30  INFO 20256 --- [banking-service] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-03-21T13:46:39.567+05:30  INFO 20256 --- [banking-service] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-03-21T13:46:39.657+05:30  INFO 20256 --- [banking-service] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-03-21T13:46:40.330+05:30  INFO 20256 --- [banking-service] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-21T13:46:40.395+05:30  INFO 20256 --- [banking-service] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-03-21T13:46:41.024+05:30  INFO 20256 --- [banking-service] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3fcd97
+2025-03-21T13:46:41.028+05:30  INFO 20256 --- [banking-service] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-03-21T13:46:41.101+05:30  WARN 20256 --- [banking-service] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-21T13:46:41.103+05:30  WARN 20256 --- [banking-service] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-03-21T13:46:43.128+05:30  INFO 20256 --- [banking-service] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-03-21T13:46:43.341+05:30  INFO 20256 --- [banking-service] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-21T13:46:44.600+05:30  WARN 20256 --- [banking-service] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-03-21T13:46:45.555+05:30  INFO 20256 --- [banking-service] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-03-21T13:46:45.662+05:30  INFO 20256 --- [banking-service] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-03-21T13:46:45.683+05:30  INFO 20256 --- [banking-service] [restartedMain] com.banking.BankingServiceApplication    : Started BankingServiceApplication in 12.132 seconds (process running for 13.549)
+2025-03-21T13:47:17.067+05:30  INFO 20256 --- [banking-service] [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-03-21T13:47:17.067+05:30  INFO 20256 --- [banking-service] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-03-21T13:47:17.070+05:30  INFO 20256 --- [banking-service] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2025-03-21T13:47:17.466+05:30  INFO 20256 --- [banking-service] [http-nio-8080-exec-2] c.b.service.impl.CustomerServiceImpl     : Creating customer with email: sopha.brown@example.com
+2025-03-21T13:47:18.026+05:30  INFO 20256 --- [banking-service] [http-nio-8080-exec-2] c.b.service.impl.CustomerServiceImpl     : Customer created successfully with ID: 1
+2025-03-21T13:47:33.911+05:30  INFO 20256 --- [banking-service] [http-nio-8080-exec-3] c.b.service.impl.CustomerServiceImpl     : Fetching all customers
+2025-03-21T13:47:33.967+05:30  INFO 20256 --- [banking-service] [http-nio-8080-exec-3] c.b.service.impl.CustomerServiceImpl     : Total customers fetched: 1
+2025-03-21T13:47:42.937+05:30  INFO 20256 --- [banking-service] [http-nio-8080-exec-5] c.b.service.impl.CustomerServiceImpl     : Fetching customer by email: sopha.brown@example.com
+2025-03-21T13:47:42.947+05:30  INFO 20256 --- [banking-service] [http-nio-8080-exec-5] c.b.service.impl.CustomerServiceImpl     : Customer fetched successfully with email: sopha.brown@example.com
+2025-03-21T13:47:55.848+05:30  INFO 20256 --- [banking-service] [http-nio-8080-exec-6] c.b.service.impl.CustomerServiceImpl     : Fetching customer by ID: 6
+2025-03-21T13:47:55.864+05:30 ERROR 20256 --- [banking-service] [http-nio-8080-exec-6] c.b.service.impl.CustomerServiceImpl     : Customer not found with ID: 6
+2025-03-21T13:47:55.905+05:30  WARN 20256 --- [banking-service] [http-nio-8080-exec-6] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.banking.exception.ResourceNotFoundException: Customer not found with id: 6]
+2025-03-21T13:48:02.533+05:30  INFO 20256 --- [banking-service] [http-nio-8080-exec-9] c.b.service.impl.CustomerServiceImpl     : Updating customer with ID: 3
+2025-03-21T13:48:02.538+05:30 ERROR 20256 --- [banking-service] [http-nio-8080-exec-9] c.b.service.impl.CustomerServiceImpl     : Customer not found with ID: 3
+2025-03-21T13:48:02.544+05:30  WARN 20256 --- [banking-service] [http-nio-8080-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.banking.exception.ResourceNotFoundException: Customer not found with id: 3]
+2025-03-21T13:48:09.735+05:30  INFO 20256 --- [banking-service] [http-nio-8080-exec-4] c.b.service.impl.CustomerServiceImpl     : Updating customer with ID: 1
+2025-03-21T13:48:09.748+05:30  INFO 20256 --- [banking-service] [http-nio-8080-exec-4] c.b.service.impl.CustomerServiceImpl     : Customer updated successfully with ID: 1
+2025-03-21T13:48:22.577+05:30  INFO 20256 --- [banking-service] [http-nio-8080-exec-8] c.b.service.impl.CustomerServiceImpl     : Deleting customer with ID: 5
+2025-03-21T13:48:23.103+05:30 ERROR 20256 --- [banking-service] [http-nio-8080-exec-8] c.b.service.impl.CustomerServiceImpl     : Customer not found with ID: 5
+2025-03-21T13:48:23.109+05:30  WARN 20256 --- [banking-service] [http-nio-8080-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.banking.exception.ResourceNotFoundException: Customer not found with id: 5]
+2025-03-21T13:48:37.911+05:30  INFO 20256 --- [banking-service] [http-nio-8080-exec-7] c.b.service.impl.AccountServiceImpl      : Fetching accounts by customer ID: 1
+2025-03-21T13:48:37.982+05:30  INFO 20256 --- [banking-service] [http-nio-8080-exec-7] c.b.service.impl.AccountServiceImpl      : Total accounts fetched for customer ID 1: 0
+2025-03-21T13:48:43.356+05:30  INFO 20256 --- [banking-service] [http-nio-8080-exec-10] c.b.service.impl.AccountServiceImpl      : Fetching accounts by customer ID: 2
+2025-03-21T13:48:43.360+05:30 ERROR 20256 --- [banking-service] [http-nio-8080-exec-10] c.b.service.impl.AccountServiceImpl      : Customer not found with ID: 2
+2025-03-21T13:48:43.364+05:30  WARN 20256 --- [banking-service] [http-nio-8080-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.banking.exception.ResourceNotFoundException: Customer not found with id: 2]
+2025-03-21T13:48:47.128+05:30  INFO 20256 --- [banking-service] [http-nio-8080-exec-1] c.b.service.impl.AccountServiceImpl      : Fetching accounts by customer ID: 1
+2025-03-21T13:48:47.146+05:30  INFO 20256 --- [banking-service] [http-nio-8080-exec-1] c.b.service.impl.AccountServiceImpl      : Total accounts fetched for customer ID 1: 0
+2025-03-21T13:49:09.278+05:30  INFO 20256 --- [banking-service] [http-nio-8080-exec-2] c.b.service.impl.AccountServiceImpl      : Creating account with number: ACC99887766
+2025-03-21T13:49:09.356+05:30  INFO 20256 --- [banking-service] [http-nio-8080-exec-2] c.b.service.impl.AccountServiceImpl      : Account created successfully with ID: 1
+2025-03-21T13:49:23.556+05:30  WARN 20256 --- [banking-service] [http-nio-8080-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' is not supported]
+2025-03-21T13:49:43.134+05:30  WARN 20256 --- [banking-service] [http-nio-8080-exec-6] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' is not supported]
+2025-03-21T13:50:03.203+05:30  INFO 20256 --- [banking-service] [http-nio-8080-exec-7] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 1164 ms
+2025-03-21T13:50:47.808+05:30  INFO 20256 --- [banking-service] [http-nio-8080-exec-3] c.b.service.impl.CreditCardServiceImpl   : Creating credit card with number: 5500000000000004
+2025-03-21T13:50:47.847+05:30  INFO 20256 --- [banking-service] [http-nio-8080-exec-3] c.b.service.impl.CreditCardServiceImpl   : Credit card created successfully with ID: 1
+2025-03-21T13:51:15.162+05:30  INFO 20256 --- [banking-service] [http-nio-8080-exec-5] c.b.service.impl.DebitCardServiceImpl    : Creating debit card for account ID: 3
+2025-03-21T13:51:15.166+05:30 ERROR 20256 --- [banking-service] [http-nio-8080-exec-5] c.b.service.impl.DebitCardServiceImpl    : Account not found with ID: 3
+2025-03-21T13:51:15.170+05:30  WARN 20256 --- [banking-service] [http-nio-8080-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.banking.exception.ResourceNotFoundException: Account not found with id: 3]
+2025-03-21T13:51:21.150+05:30  INFO 20256 --- [banking-service] [http-nio-8080-exec-6] c.b.service.impl.DebitCardServiceImpl    : Creating debit card for account ID: 1
+2025-03-21T13:51:21.217+05:30  INFO 20256 --- [banking-service] [http-nio-8080-exec-6] c.b.service.impl.DebitCardServiceImpl    : Debit card created successfully for account ID: 1
+2025-03-21T13:53:26.608+05:30  INFO 20256 --- [banking-service] [http-nio-8080-exec-4] c.b.service.impl.TransactionServiceImpl  : Creating transaction
+2025-03-21T13:53:26.610+05:30  INFO 20256 --- [banking-service] [http-nio-8080-exec-4] c.b.service.impl.TransactionServiceImpl  : Fetching debit card by ID: 101
+2025-03-21T13:53:26.620+05:30 ERROR 20256 --- [banking-service] [http-nio-8080-exec-4] c.b.service.impl.TransactionServiceImpl  : Debit card not found with ID: 101
+2025-03-21T13:53:26.624+05:30  WARN 20256 --- [banking-service] [http-nio-8080-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.banking.exception.ResourceNotFoundException: Debit card not found with id: 101]
+2025-03-21T13:53:36.704+05:30  INFO 20256 --- [banking-service] [http-nio-8080-exec-7] c.b.service.impl.TransactionServiceImpl  : Creating transaction
+2025-03-21T13:53:36.704+05:30  INFO 20256 --- [banking-service] [http-nio-8080-exec-7] c.b.service.impl.TransactionServiceImpl  : Fetching debit card by ID: 1
+2025-03-21T13:53:36.757+05:30  WARN 20256 --- [banking-service] [http-nio-8080-exec-7] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1048, SQLState: 23000
+2025-03-21T13:53:36.757+05:30 ERROR 20256 --- [banking-service] [http-nio-8080-exec-7] o.h.engine.jdbc.spi.SqlExceptionHelper   : Column 'status' cannot be null
+2025-03-21T13:53:36.773+05:30  WARN 20256 --- [banking-service] [http-nio-8080-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.dao.DataIntegrityViolationException: could not execute statement [Column 'status' cannot be null] [insert into transactions (amount,credit_card_id,debit_card_id,description,status,transaction_date,transaction_reference,transaction_timestamp,transaction_type) values (?,?,?,?,?,?,?,?,?)]; SQL [insert into transactions (amount,credit_card_id,debit_card_id,description,status,transaction_date,transaction_reference,transaction_timestamp,transaction_type) values (?,?,?,?,?,?,?,?,?)]; constraint [null]]
+2025-03-21T13:54:37.015+05:30  INFO 20256 --- [banking-service] [http-nio-8080-exec-10] c.b.service.impl.TransactionServiceImpl  : Creating transaction
+2025-03-21T13:54:37.015+05:30  INFO 20256 --- [banking-service] [http-nio-8080-exec-10] c.b.service.impl.TransactionServiceImpl  : Fetching debit card by ID: 1
+2025-03-21T13:54:37.037+05:30  WARN 20256 --- [banking-service] [http-nio-8080-exec-10] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1048, SQLState: 23000
+2025-03-21T13:54:37.037+05:30 ERROR 20256 --- [banking-service] [http-nio-8080-exec-10] o.h.engine.jdbc.spi.SqlExceptionHelper   : Column 'status' cannot be null
+2025-03-21T13:54:37.042+05:30  WARN 20256 --- [banking-service] [http-nio-8080-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.dao.DataIntegrityViolationException: could not execute statement [Column 'status' cannot be null] [insert into transactions (amount,credit_card_id,debit_card_id,description,status,transaction_date,transaction_reference,transaction_timestamp,transaction_type) values (?,?,?,?,?,?,?,?,?)]; SQL [insert into transactions (amount,credit_card_id,debit_card_id,description,status,transaction_date,transaction_reference,transaction_timestamp,transaction_type) values (?,?,?,?,?,?,?,?,?)]; constraint [null]]
+2025-03-21T13:57:41.563+05:30  INFO 20256 --- [banking-service] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-21T13:57:41.572+05:30  INFO 20256 --- [banking-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-03-21T13:57:41.599+05:30  INFO 20256 --- [banking-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-03-21T13:57:56.438+05:30  INFO 15676 --- [banking-service] [restartedMain] com.banking.BankingServiceApplication    : Starting BankingServiceApplication using Java 17.0.12 with PID 15676 (C:\Users\Asus\Desktop\banking-service\target\classes started by Asus in C:\Users\Asus\Desktop\banking-service)
+2025-03-21T13:57:56.442+05:30 DEBUG 15676 --- [banking-service] [restartedMain] com.banking.BankingServiceApplication    : Running with Spring Boot v3.3.9, Spring v6.1.17
+2025-03-21T13:57:56.444+05:30  INFO 15676 --- [banking-service] [restartedMain] com.banking.BankingServiceApplication    : No active profile set, falling back to 1 default profile: "default"
+2025-03-21T13:57:56.578+05:30  INFO 15676 --- [banking-service] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-03-21T13:57:56.579+05:30  INFO 15676 --- [banking-service] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-03-21T13:57:58.749+05:30  INFO 15676 --- [banking-service] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-21T13:57:58.944+05:30  INFO 15676 --- [banking-service] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 185 ms. Found 5 JPA repository interfaces.
+2025-03-21T13:58:00.550+05:30  INFO 15676 --- [banking-service] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-03-21T13:58:00.587+05:30  INFO 15676 --- [banking-service] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-03-21T13:58:00.587+05:30  INFO 15676 --- [banking-service] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-03-21T13:58:00.768+05:30  INFO 15676 --- [banking-service] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-03-21T13:58:00.770+05:30  INFO 15676 --- [banking-service] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4188 ms
+2025-03-21T13:58:01.113+05:30  INFO 15676 --- [banking-service] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-03-21T13:58:01.255+05:30  INFO 15676 --- [banking-service] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-03-21T13:58:01.351+05:30  INFO 15676 --- [banking-service] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-03-21T13:58:02.069+05:30  INFO 15676 --- [banking-service] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-21T13:58:02.122+05:30  INFO 15676 --- [banking-service] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-03-21T13:58:02.693+05:30  INFO 15676 --- [banking-service] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7a8683f8
+2025-03-21T13:58:02.697+05:30  INFO 15676 --- [banking-service] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-03-21T13:58:02.772+05:30  WARN 15676 --- [banking-service] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-21T13:58:02.774+05:30  WARN 15676 --- [banking-service] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-03-21T13:58:04.843+05:30  INFO 15676 --- [banking-service] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-03-21T13:58:05.032+05:30  INFO 15676 --- [banking-service] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-21T13:58:06.383+05:30  WARN 15676 --- [banking-service] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-03-21T13:58:07.384+05:30  INFO 15676 --- [banking-service] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-03-21T13:58:07.461+05:30  INFO 15676 --- [banking-service] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-03-21T13:58:07.481+05:30  INFO 15676 --- [banking-service] [restartedMain] com.banking.BankingServiceApplication    : Started BankingServiceApplication in 12.048 seconds (process running for 13.332)
+2025-03-21T13:58:20.693+05:30  INFO 15676 --- [banking-service] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-03-21T13:58:20.693+05:30  INFO 15676 --- [banking-service] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-03-21T13:58:20.696+05:30  INFO 15676 --- [banking-service] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2025-03-21T13:58:21.023+05:30  WARN 15676 --- [banking-service] [http-nio-8080-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `com.banking.entity.enums.TransactionStatus` from String "COMPLETED": not one of the values accepted for Enum class: [SUCCESS, FAILED, PENDING]]
+2025-03-21T13:58:35.913+05:30  INFO 15676 --- [banking-service] [http-nio-8080-exec-4] c.b.service.impl.TransactionServiceImpl  : Creating transaction
+2025-03-21T13:58:35.914+05:30  INFO 15676 --- [banking-service] [http-nio-8080-exec-4] c.b.service.impl.TransactionServiceImpl  : Fetching debit card by ID: 1
+2025-03-21T13:58:36.338+05:30  INFO 15676 --- [banking-service] [http-nio-8080-exec-4] c.b.service.impl.TransactionServiceImpl  : Transaction created successfully with reference: TXN-A8C47C1D
+2025-03-21T14:00:15.783+05:30  INFO 15676 --- [banking-service] [http-nio-8080-exec-6] c.b.service.impl.TransactionServiceImpl  : Creating transaction
+2025-03-21T14:00:15.784+05:30  INFO 15676 --- [banking-service] [http-nio-8080-exec-6] c.b.service.impl.TransactionServiceImpl  : Fetching debit card by ID: 1
+2025-03-21T14:00:15.846+05:30  INFO 15676 --- [banking-service] [http-nio-8080-exec-6] c.b.service.impl.TransactionServiceImpl  : Transaction created successfully with reference: TXN-2855F95F
+2025-03-21T14:01:09.436+05:30  INFO 15676 --- [banking-service] [http-nio-8080-exec-8] c.b.service.impl.TransactionServiceImpl  : Creating transaction
+2025-03-21T14:01:09.436+05:30  INFO 15676 --- [banking-service] [http-nio-8080-exec-8] c.b.service.impl.TransactionServiceImpl  : Fetching credit card by ID: 1
+2025-03-21T14:01:09.474+05:30  INFO 15676 --- [banking-service] [http-nio-8080-exec-8] c.b.service.impl.TransactionServiceImpl  : Transaction created successfully with reference: TXN-854C3F13
+2025-03-21T14:02:43.303+05:30  INFO 15676 --- [banking-service] [http-nio-8080-exec-10] c.b.service.impl.TransactionServiceImpl  : Creating transaction
+2025-03-21T14:02:43.305+05:30  INFO 15676 --- [banking-service] [http-nio-8080-exec-10] c.b.service.impl.TransactionServiceImpl  : Fetching credit card by ID: 2
+2025-03-21T14:02:43.319+05:30 ERROR 15676 --- [banking-service] [http-nio-8080-exec-10] c.b.service.impl.TransactionServiceImpl  : Credit card not found with ID: 2
+2025-03-21T14:02:43.325+05:30  WARN 15676 --- [banking-service] [http-nio-8080-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.banking.exception.ResourceNotFoundException: Credit card not found with id: 2]
+2025-03-21T14:03:03.568+05:30  INFO 15676 --- [banking-service] [http-nio-8080-exec-2] c.b.service.impl.TransactionServiceImpl  : Fetching all transactions
+2025-03-21T14:03:03.604+05:30  INFO 15676 --- [banking-service] [http-nio-8080-exec-2] c.b.service.impl.TransactionServiceImpl  : 1 transactions found
+2025-03-21T14:03:33.545+05:30  INFO 15676 --- [banking-service] [http-nio-8080-exec-1] c.b.service.impl.TransactionServiceImpl  : Fetching transaction by reference: TXN-854C3F13
+2025-03-21T14:03:33.555+05:30  INFO 15676 --- [banking-service] [http-nio-8080-exec-1] c.b.service.impl.TransactionServiceImpl  : Transaction fetched successfully with reference: TXN-854C3F13
+2025-03-21T14:03:49.970+05:30  INFO 15676 --- [banking-service] [http-nio-8080-exec-3] c.b.service.impl.TransactionServiceImpl  : Fetching transaction by reference: TXN-854C3F13
+2025-03-21T14:03:49.983+05:30  INFO 15676 --- [banking-service] [http-nio-8080-exec-3] c.b.service.impl.TransactionServiceImpl  : Transaction fetched successfully with reference: TXN-854C3F13
+2025-03-21T14:04:56.466+05:30  INFO 15676 --- [banking-service] [http-nio-8080-exec-7] c.b.service.impl.TransactionServiceImpl  : Fetching transactions by debit card ID: 1
+2025-03-21T14:04:57.071+05:30  INFO 15676 --- [banking-service] [http-nio-8080-exec-7] c.b.service.impl.TransactionServiceImpl  : 0 transactions found for debit card ID: 1
+2025-03-21T14:05:14.233+05:30  INFO 15676 --- [banking-service] [http-nio-8080-exec-9] c.b.service.impl.TransactionServiceImpl  : Fetching transactions by debit card ID: 1
+2025-03-21T14:05:14.261+05:30  INFO 15676 --- [banking-service] [http-nio-8080-exec-9] c.b.service.impl.TransactionServiceImpl  : 0 transactions found for debit card ID: 1
+2025-03-21T14:05:56.441+05:30  INFO 15676 --- [banking-service] [http-nio-8080-exec-10] c.b.service.impl.TransactionServiceImpl  : Fetching transactions by credit card ID: 1
+2025-03-21T14:05:56.466+05:30  INFO 15676 --- [banking-service] [http-nio-8080-exec-10] c.b.service.impl.TransactionServiceImpl  : 1 transactions found for credit card ID: 1
+2025-03-21T14:06:15.605+05:30  INFO 15676 --- [banking-service] [http-nio-8080-exec-4] c.b.service.impl.TransactionServiceImpl  : Fetching transactions by credit card ID: 1
+2025-03-21T14:06:15.627+05:30  INFO 15676 --- [banking-service] [http-nio-8080-exec-4] c.b.service.impl.TransactionServiceImpl  : 1 transactions found for credit card ID: 1
+2025-03-21T14:07:07.025+05:30  INFO 15676 --- [banking-service] [http-nio-8080-exec-5] c.b.service.impl.TransactionServiceImpl  : Fetching all transactions
+2025-03-21T14:07:07.052+05:30  INFO 15676 --- [banking-service] [http-nio-8080-exec-5] c.b.service.impl.TransactionServiceImpl  : 1 transactions found
+2025-03-21T14:08:35.902+05:30  WARN 15676 --- [banking-service] [http-nio-8080-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unrecognized token 'Tushar': was expecting (JSON String, Number, Array, Object or token 'null', 'true' or 'false')]
+2025-03-21T14:08:57.708+05:30  INFO 15676 --- [banking-service] [http-nio-8080-exec-9] c.b.service.impl.TransactionServiceImpl  : Updating transaction with ID: 1
+2025-03-21T14:08:57.718+05:30  INFO 15676 --- [banking-service] [http-nio-8080-exec-9] c.b.service.impl.TransactionServiceImpl  : Fetching debit card by ID: 1
+2025-03-21T14:08:57.734+05:30  INFO 15676 --- [banking-service] [http-nio-8080-exec-9] c.b.service.impl.TransactionServiceImpl  : Transaction updated successfully with ID: 1
+2025-03-21T14:12:38.736+05:30  INFO 15676 --- [banking-service] [http-nio-8080-exec-2] c.b.service.impl.TransactionServiceImpl  : Updating transaction with ID: 1
+2025-03-21T14:12:38.745+05:30  INFO 15676 --- [banking-service] [http-nio-8080-exec-2] c.b.service.impl.TransactionServiceImpl  : Fetching credit card by ID: 1
+2025-03-21T14:12:38.757+05:30  INFO 15676 --- [banking-service] [http-nio-8080-exec-2] c.b.service.impl.TransactionServiceImpl  : Transaction updated successfully with ID: 1
+2025-03-21T14:12:52.054+05:30  INFO 15676 --- [banking-service] [http-nio-8080-exec-1] c.b.service.impl.TransactionServiceImpl  : Updating transaction with ID: 1
+2025-03-21T14:12:52.059+05:30  INFO 15676 --- [banking-service] [http-nio-8080-exec-1] c.b.service.impl.TransactionServiceImpl  : Fetching credit card by ID: 1
+2025-03-21T14:12:52.107+05:30 ERROR 15676 --- [banking-service] [http-nio-8080-exec-1] c.b.service.impl.TransactionServiceImpl  : Transaction reference already exists: TXN-5678
+2025-03-21T14:12:52.121+05:30  WARN 15676 --- [banking-service] [http-nio-8080-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.IllegalArgumentException: Transaction reference already exists]
+2025-03-21T14:13:36.551+05:30  INFO 15676 --- [banking-service] [http-nio-8080-exec-4] c.b.service.impl.TransactionServiceImpl  : Updating transaction with ID: 1
+2025-03-21T14:13:36.556+05:30  INFO 15676 --- [banking-service] [http-nio-8080-exec-4] c.b.service.impl.TransactionServiceImpl  : Fetching credit card by ID: 1
+2025-03-21T14:13:36.565+05:30 ERROR 15676 --- [banking-service] [http-nio-8080-exec-4] c.b.service.impl.TransactionServiceImpl  : Transaction reference already exists: TXN-5678
+2025-03-21T14:13:36.571+05:30  WARN 15676 --- [banking-service] [http-nio-8080-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.IllegalArgumentException: Transaction reference already exists]
+2025-03-21T14:15:22.595+05:30  INFO 15676 --- [banking-service] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-21T14:15:22.637+05:30  INFO 15676 --- [banking-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-03-21T14:15:22.686+05:30  INFO 15676 --- [banking-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-03-21T14:16:05.650+05:30  INFO 20072 --- [banking-service] [restartedMain] com.banking.BankingServiceApplication    : Starting BankingServiceApplication using Java 17.0.12 with PID 20072 (C:\Users\Asus\Desktop\banking-service\target\classes started by Asus in C:\Users\Asus\Desktop\banking-service)
+2025-03-21T14:16:05.655+05:30 DEBUG 20072 --- [banking-service] [restartedMain] com.banking.BankingServiceApplication    : Running with Spring Boot v3.3.9, Spring v6.1.17
+2025-03-21T14:16:05.656+05:30  INFO 20072 --- [banking-service] [restartedMain] com.banking.BankingServiceApplication    : No active profile set, falling back to 1 default profile: "default"
+2025-03-21T14:16:05.800+05:30  INFO 20072 --- [banking-service] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-03-21T14:16:05.801+05:30  INFO 20072 --- [banking-service] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-03-21T14:16:08.047+05:30  INFO 20072 --- [banking-service] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-21T14:16:08.221+05:30  INFO 20072 --- [banking-service] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 156 ms. Found 5 JPA repository interfaces.
+2025-03-21T14:16:09.650+05:30  INFO 20072 --- [banking-service] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-03-21T14:16:09.678+05:30  INFO 20072 --- [banking-service] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-03-21T14:16:09.679+05:30  INFO 20072 --- [banking-service] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-03-21T14:16:09.799+05:30  INFO 20072 --- [banking-service] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-03-21T14:16:09.800+05:30  INFO 20072 --- [banking-service] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3986 ms
+2025-03-21T14:16:10.158+05:30  INFO 20072 --- [banking-service] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-03-21T14:16:10.298+05:30  INFO 20072 --- [banking-service] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-03-21T14:16:10.376+05:30  INFO 20072 --- [banking-service] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-03-21T14:16:11.055+05:30  INFO 20072 --- [banking-service] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-21T14:16:11.110+05:30  INFO 20072 --- [banking-service] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-03-21T14:16:11.720+05:30  INFO 20072 --- [banking-service] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@fc65412
+2025-03-21T14:16:11.724+05:30  INFO 20072 --- [banking-service] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-03-21T14:16:11.808+05:30  WARN 20072 --- [banking-service] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-21T14:16:11.810+05:30  WARN 20072 --- [banking-service] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-03-21T14:16:13.609+05:30  INFO 20072 --- [banking-service] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-03-21T14:16:13.810+05:30  INFO 20072 --- [banking-service] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-21T14:16:15.086+05:30  WARN 20072 --- [banking-service] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-03-21T14:16:15.993+05:30  INFO 20072 --- [banking-service] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-03-21T14:16:16.072+05:30  INFO 20072 --- [banking-service] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-03-21T14:16:16.091+05:30  INFO 20072 --- [banking-service] [restartedMain] com.banking.BankingServiceApplication    : Started BankingServiceApplication in 11.475 seconds (process running for 12.569)
+2025-03-21T14:16:24.926+05:30  INFO 20072 --- [banking-service] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-03-21T14:16:24.926+05:30  INFO 20072 --- [banking-service] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-03-21T14:16:24.929+05:30  INFO 20072 --- [banking-service] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2025-03-21T14:16:25.206+05:30  INFO 20072 --- [banking-service] [http-nio-8080-exec-1] c.b.service.impl.TransactionServiceImpl  : Updating transaction with ID: 1
+2025-03-21T14:16:25.328+05:30  INFO 20072 --- [banking-service] [http-nio-8080-exec-1] c.b.service.impl.TransactionServiceImpl  : Fetching credit card by ID: 1
+2025-03-21T14:16:25.412+05:30  INFO 20072 --- [banking-service] [http-nio-8080-exec-1] c.b.service.impl.TransactionServiceImpl  : Transaction updated successfully with ID: 1
+2025-03-21T14:17:17.429+05:30  INFO 20072 --- [banking-service] [http-nio-8080-exec-3] c.b.service.impl.TransactionServiceImpl  : Updating transaction with ID: 1
+2025-03-21T14:17:17.435+05:30  INFO 20072 --- [banking-service] [http-nio-8080-exec-3] c.b.service.impl.TransactionServiceImpl  : Fetching credit card by ID: 1
+2025-03-21T14:17:17.440+05:30  INFO 20072 --- [banking-service] [http-nio-8080-exec-3] c.b.service.impl.TransactionServiceImpl  : Transaction updated successfully with ID: 1
+2025-03-21T14:18:54.329+05:30  INFO 20072 --- [banking-service] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-21T14:18:54.352+05:30  INFO 20072 --- [banking-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-03-21T14:18:54.370+05:30  INFO 20072 --- [banking-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

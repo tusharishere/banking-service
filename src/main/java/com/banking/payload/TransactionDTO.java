@@ -1,5 +1,6 @@
 package com.banking.payload;
 
+import com.banking.entity.enums.TransactionStatus;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -40,7 +41,7 @@ public class TransactionDTO {
 
     private Long creditCardId;
 
-    private String status;
+    private TransactionStatus status;
 
     private LocalDateTime transactionTimestamp;
 
