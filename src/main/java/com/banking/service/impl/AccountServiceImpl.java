@@ -110,12 +110,6 @@ public class AccountServiceImpl implements AccountService {
                     return new ResourceNotFoundException("Account not found with id: " + id);
                 });
 
-//        if (!account.getAccountNumber().equals(accountDTO.getAccountNumber()) &&
-//                accountRepository.existsByAccountNumber(accountDTO.getAccountNumber())) {
-//            log.warn("Account number already exists: {}", accountDTO.getAccountNumber());
-//            throw new IllegalArgumentException("Account number already exists");
-//        }
-
         account.setAccountType(accountDTO.getAccountType());
         Account updatedAccount = accountRepository.save(account);
         log.info("Account updated successfully with ID: {}", id);
